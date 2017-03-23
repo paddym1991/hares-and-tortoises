@@ -33,7 +33,7 @@ public class GameController {
             try {
                 return Integer.parseInt(input.nextLine());
             } catch (NumberFormatException e) {
-                if (errorMessage != "") System.err.println(errorMessage);
+                if (!errorMessage.equals("")) System.err.println(errorMessage);
             }
         }
     }
