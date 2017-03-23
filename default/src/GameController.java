@@ -21,9 +21,21 @@ public class GameController {
 
         System.out.println("Welcome to Hare and Tortoise");
         System.out.println("----------------------------");
-        System.out.print("\nPlease enter number of players: ");
-        int numOfPlayers = input.nextInt();
+        int numOfPlayers = getSafeInt("\nPlease enter number of players: ");
     }
 
+    private int getSafeInt(String prompt) {
+        return getSafeInt(prompt, "");
+    }
+    private int getSafeInt(String prompt, String errorMessage) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return Integer.parseInt(input.nextLine());
+            } catch (NumberFormatException e) {
+                if (errorMessage != "") System.err.println(errorMessage);
+            }
+        }
+    }
 
 }
