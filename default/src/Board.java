@@ -3,22 +3,39 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Board {
-    private List<Player> players;
+    private List<Player> players = new ArrayList<>();
     private List<Square> squares;
 
-    public Board() {
-        players = Arrays.asList(new Player());
+    public Board() {    //One player
+        players.add(new Player());
+        loadDefaultBoard();
+    }
+
+    public Board(int numPlayers) {
+        for (int i=0; i<numPlayers; i++) {
+            players.add(new Player());
+        }
+        loadDefaultBoard();
+    }
+
+    private void loadDefaultBoard() {
         squares = Arrays.asList(
                 new Square(),   //Start square
                 new Square(),   //Square 1
                 new Square(),   //Square 2
                 new Square(),   //Square 3
-                new Square()    //Square 4
+                new Square(),   //Square 4
+                new Square()    //End square
         );
     }
 
-    public Board(int numPlayers) {
-        //TODO: Fill "players" with the right number of Player instances
-        squares = new ArrayList<>();
+    public Player getPlayer(int index) {
+        return players.get(index);
+    }
+    public String getPlayerName(int index) { //Could be replaced if the players can have custom names
+        return "Player " + (index+1);
+    }
+    public Square getSquare(int index) {
+        return squares.get(index);
     }
 }
