@@ -25,15 +25,19 @@ public class GameController {
     }
 
     private int getSafeInt(String prompt) {
-        return getSafeInt(prompt, "");
+        return getSafeInt(prompt, 1, 10, "Invalid input. Please try again.");
     }
-    private int getSafeInt(String prompt, String errorMessage) {
+    private int getSafeInt(String prompt, int minValue, int maxValue, String errorMessage) {
         while (true) {
             System.out.print(prompt);
             try {
-                return Integer.parseInt(input.nextLine());
+                int value = Integer.parseInt(input.nextLine());
+                if (value >= minValue && value <= maxValue)
+                    return value;
+                else
+                    System.err.println(errorMessage);
             } catch (NumberFormatException e) {
-                if (!errorMessage.equals("")) System.err.println(errorMessage);
+                System.err.println(errorMessage);
             }
         }
     }
