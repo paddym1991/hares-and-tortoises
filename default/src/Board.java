@@ -40,7 +40,7 @@ public class Board {
     }
 
     public boolean atEnd(int position) {
-        if (squares.size() < position) {
+        if (position >= squares.size()-1) {
             return true;
         }
         return false;

@@ -12,7 +12,7 @@ public static void main(String[] args) {
     new SimpleGameController();
 }
 public SimpleGameController() {
-
+    input = new Scanner(System.in);
     board = new Board(1);
     Player player;
     boolean continueFlag = true;
