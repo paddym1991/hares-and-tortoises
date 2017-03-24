@@ -7,13 +7,13 @@ public class Board {
     private List<Square> squares;
 
     public Board() {    //One player
-        players.add(new Player());
+        players.add(new Player(this));
         loadDefaultBoard();
     }
 
     public Board(int numPlayers) {
         for (int i=0; i<numPlayers; i++) {
-            players.add(new Player());
+            players.add(new Player(this));
         }
         loadDefaultBoard();
     }
@@ -37,5 +37,14 @@ public class Board {
     }
     public Square getSquare(int index) {
         return squares.get(index);
+    }
+
+    public boolean atEnd(int position) {
+        if (squares.size() < position) {
+            return true;
+        }
+        return false;
+
+
     }
 }
