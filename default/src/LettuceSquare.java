@@ -9,7 +9,7 @@ public class LettuceSquare extends Square {
 
     @Override
     public boolean canLandOn(Player player) {
-        //If the player could land on a regular Square here, AND has 1+ lettuce, return true. Otherwise return false.
+        //If the player could land on a regular Square here.
         return (super.canLandOn(player) && player.getLettuce() > 0);
     }
 
@@ -20,14 +20,7 @@ public class LettuceSquare extends Square {
 
     @Override
     public void onTurnStart(Player player) {
-        if ( player.isFaceDown() ) {
-            player.takeLettuce();
-            int carrotsEarned = 10 * player.getRacePosition();
-            player.addCarrots(carrotsEarned);
-            // Hand this off to a GameController; it decides how messages are actually displayed
-            // ???.displayMessage(player.getName() + " spent their turn chewing on lettuce and earned " + carrotsEarned + " carrots.");
-            player.flipFaceUp();
-            player.endTurn();
+
         }
 
         //If the player isn't face-down, do nothing; proceed as a regular turn
