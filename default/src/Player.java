@@ -17,7 +17,7 @@ public class Player {
 
     public boolean atEnd() {
 
-        return board.atEnd( getBoardPosition() ); //the board knows the rules for being at the end of the board.
+        return board.atEnd(getBoardPosition()); //the board knows the rules for being at the end of the board.
         //so ask board are we at the end (.atEnd) by giving it our board position
         //(getBoardPosition).
     }
@@ -25,6 +25,7 @@ public class Player {
     public void addCarrots(int amount) {
         //TODO
     }
+
     public void takeCarrots(int amount) {
         //TODO
     }
@@ -32,6 +33,7 @@ public class Player {
     public int getLettuce() {
         return 0; //TODO: Get actual result
     }
+
     public void takeLettuce() {
         //TODO: Reduce the player's stock of lettuce by one. No way to gain extra lettuce, an so addLettuce() method isn't needed.
     }
@@ -52,10 +54,30 @@ public class Player {
     public boolean isFaceDown() {
         return faceDown;
     }
+
     public void flipFaceDown() {
         faceDown = true;
     }
+
     public void flipFaceUp() {
         faceDown = false;
+    }
+
+
+
+
+
+
+    public void moveBackwards() {
+    }
+
+
+    public boolean getTortoise() {
+    return false;
+    }
+
+    public int numberOfSquares() {
+        int numberOfSquare = 0;
+        return numberOfSquare;
     }
 }
