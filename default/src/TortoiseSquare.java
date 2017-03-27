@@ -7,12 +7,13 @@
 
 public class TortoiseSquare extends Square {
 
+    private int numberOfSquares;
+
     public void onLandOn(Player player) {
         player.moveBackwards();
     }
 
     public int getNumberOfSquares() {
-        int numberOfSquares = 1;
         return numberOfSquares;
     }
 
