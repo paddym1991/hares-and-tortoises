@@ -26,4 +26,3 @@ public class LettuceSquare extends Square {
         //If the player isn't face-down, do nothing; proceed as a regular turn
     }
 
-}
