@@ -23,7 +23,7 @@ public class CarrotSquare extends Square {
                     System.out.println("You have chosen to stay where you are and gain 10 carrots");
                     break;
                 case 2:
-                    System.out.println("You have chosen to stay where you are an discard 10 carrots");
+                    System.out.println("You have chosen to stay where you are and discard 10 carrots");
                     break;
                 case 3:
                     System.out.println("You have chosen to take your turn as normal");
