@@ -27,7 +27,6 @@ public class SimpleGameController {
            // int move = input.nextInt();
             //put input.nextInt() into braces below.
             player.movePlayer(input.nextInt());
-            System.out.println(board.getPlayerName(0) + " position: " + player.getBoardPosition());
             if (player.atEnd()) {
                 continueFlag = false;
                 System.out.println("You Win");
