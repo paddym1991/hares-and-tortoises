@@ -15,5 +15,4 @@ public class Square {
     public void onTurnStart(Player player) {
         //Do nothing
     }
-
 }

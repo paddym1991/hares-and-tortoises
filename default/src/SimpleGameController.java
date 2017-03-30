@@ -24,16 +24,17 @@ public class SimpleGameController {
             player = board.getPlayer(0);
             System.out.println(board.getPlayerName(0) + " position: " + player.getBoardPosition());
             System.out.println("Enter number of squares to move: ");
-           // int move = input.nextInt();
+            // int move = input.nextInt();
             //put input.nextInt() into braces below.
             player.movePlayer(input.nextInt());
             if (player.atEnd()) {
                 continueFlag = false;
                 System.out.println("You Win");
             }
-
         }
 
     }
+
+
 
 }
