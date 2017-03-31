@@ -19,6 +19,7 @@ public class GameController {
         input = new Scanner(System.in);
         board = new Board(1);
         Player player;
+        HareSquare.shuffle();
         boolean continueFlag = true;
         while (continueFlag) {
             player = board.getPlayer(0);

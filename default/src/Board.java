@@ -24,7 +24,7 @@ public class Board {
                 new Square(),   //Square 1
                 new HareSquare(),   //Square 2
                 new Square(),   //Square 3
-                new Square(),   //Square 4
+                new HareSquare(),   //Square 4
                 new Square()    //End square
         );
     }
@@ -45,7 +45,10 @@ public class Board {
             return true;
         }
         return false;
-
-
     }
+
+    public int noOfPlayers() {
+        return players.size();
+    }
+
 }
