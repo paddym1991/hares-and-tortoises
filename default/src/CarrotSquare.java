@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class CarrotSquare extends Square {
 
-        public static void main(String[] args) {
+        public void CarrotSquare() {
             Scanner input = new Scanner(System.in);//Scanner class used to read input from keyboard
             System.out.print("============Enter your choice============\n ");
             System.out.print("1) Stay where you are and gain 10 carrots?\n ");
@@ -29,8 +29,7 @@ public class CarrotSquare extends Square {
                     System.out.println("You have chosen to take your turn as normal");
                     break;
                 default:
-                    System.out.println("Invalid Option... Try Again");
-                    break;
+                    System.err.println("Invalid Option... Try Again");
             }
         }
     }
