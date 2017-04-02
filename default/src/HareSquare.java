@@ -67,15 +67,16 @@ public class HareSquare extends Square {
             case 2:
                 System.out.println("Free Ride! Your last turn costs nothing; retrieve the carrots you paid to reach this square.");
                 break;
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             case 3:
-                System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.");
-                int lettuce = 3;
-                if ( lettuce > 0 && lettuce <= 3 ) {
-                    System.out.println("Draw 10 carrots for every lettuce card you have");
-                } else if ( lettuce == 0 ) {
-                    System.out.println("You have no lettuce cards left, miss a turn");
+                System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
+                int lettuceCardsArray[] = {1,2,3};
+                for(int counter=lettuceCardsArray.length - 1; counter >= 0;counter--) {
+                    if ( counter > 0 && counter <= 3 ) System.out.println("Draw 10 carrots for every lettuce card you have\n");
+                    else System.out.println("You have no lettuce cards left, miss a turn\n");
                 }
-                break;
+                    break;
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         case 4:
         System.out.println("Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.");
         break;
