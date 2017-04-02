@@ -71,8 +71,8 @@ public class HareSquare extends Square {
             case 3:
                 System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
                 int lettuceCardsArray[] = {1,2,3};
-                for(int counter=lettuceCardsArray.length - 1; counter >= 0;counter--) {
-                    if ( counter > 0 && counter <= 3 ) System.out.println("Draw 10 carrots for every lettuce card you have\n");
+                for(int counter=lettuceCardsArray.length - 1; counter >= -1;counter--) {
+                    if ( counter > -1 && counter <= 3 ) System.out.println("Draw 10 carrots for every lettuce card you have\n");
                     else System.out.println("You have no lettuce cards left, miss a turn\n");
                 }
                     break;
