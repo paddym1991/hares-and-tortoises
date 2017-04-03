@@ -31,6 +31,10 @@ public class Player {
                                                 //(getBoardPosition).
     }
 
+    public int getCarrots() {
+        //TODO
+        return 0;
+    }
     public void addCarrots(int amount) {
         //TODO
     }

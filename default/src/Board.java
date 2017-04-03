@@ -84,7 +84,7 @@ public class Board {
                 new CarrotSquare(),     //Square 61
                 new HareSquare(),     //Square 62
                 new CarrotSquare(),     //Square 63
-                new Square()    //End square
+                new EndSquare()    //End square
         );
     }
 
