@@ -48,7 +48,7 @@ public class Player {
     }
 
     public String getName() {
-        return "Placeholder"; //TODO: Get player's name (e.g. "Player 1")
+        return board.getPlayerName(this);
     }
 
     public int getRacePosition() {

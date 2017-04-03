@@ -24,8 +24,8 @@ public class LettuceSquare extends Square {
             player.takeLettuce();
             int carrotsEarned = 10 * player.getRacePosition();
             player.addCarrots(carrotsEarned);
-            // Hand this off to a GameController; it decides how messages are actually displayed
-            // ???.displayMessage(player.getName() + " spent their turn chewing on lettuce and earned " + carrotsEarned + " carrots.");
+            // Preferably hand this off to a GameController; it decides how messages are actually displayed
+            System.out.println(player.getName() + " spent their turn chewing on lettuce and earned " + carrotsEarned + " carrots.");
             player.flipFaceUp();
             player.endTurn();
         }

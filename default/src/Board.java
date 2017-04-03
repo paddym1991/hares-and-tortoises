@@ -32,6 +32,7 @@ public class Board {
     public Player getPlayer(int index) {
         return players.get(index);
     }
+    public String getPlayerName(Player player) {return getPlayerName(players.indexOf(player));}
     public String getPlayerName(int index) { //Could be replaced if the players can have custom names
         return "Player " + (index+1);
     }
