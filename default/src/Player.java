@@ -7,8 +7,17 @@ public class Player {
         this.board = board;
     }
 
+
+    public Board getBoard() {
+        return board;
+    }
+
     public int getBoardPosition() {
         return boardPosition;
+    }
+
+    public Square getSquare() {
+        return board.getSquare(boardPosition);
     }
 
     public void movePlayer(int numberOfSquares) {
@@ -18,8 +27,8 @@ public class Player {
     public boolean atEnd() {
 
         return board.atEnd(getBoardPosition()); //the board knows the rules for being at the end of the board.
-        //so ask board are we at the end (.atEnd) by giving it our board position
-        //(getBoardPosition).
+                                                //so ask board are we at the end (.atEnd) by giving it our board position
+                                                //(getBoardPosition).
     }
 
     public void addCarrots(int amount) {

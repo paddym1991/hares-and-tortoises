@@ -22,9 +22,9 @@ public class Board {
         squares = Arrays.asList(
                 new Square(),   //Start square
                 new Square(),   //Square 1
-                new Square(),   //Square 2
+                new HareSquare(),   //Square 2
                 new Square(),   //Square 3
-                new Square(),   //Square 4
+                new HareSquare(),   //Square 4
                 new Square()    //End square
         );
     }
@@ -35,6 +35,7 @@ public class Board {
     public String getPlayerName(int index) { //Could be replaced if the players can have custom names
         return "Player " + (index+1);
     }
+
     public Square getSquare(int index) {
         return squares.get(index);
     }
@@ -44,7 +45,10 @@ public class Board {
             return true;
         }
         return false;
-
-
     }
+
+    public int noOfPlayers() {
+        return players.size();
+    }
+
 }
