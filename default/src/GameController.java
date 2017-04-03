@@ -27,8 +27,16 @@ public class GameController {
             System.out.println(board.getPlayerName(0) + " position: "
                     + player.getFormattedBoardPosition()
                     + " (" + player.getFormattedRacePosition() + ")");
+
             player.resetTurnStatus();
+
             player.getSquare().onTurnStart(player);
+
+            if (player.isFaceDown()) { //House rule: All "skip next turn" effects flip the player face-down for easier tracking
+                player.flipFaceUp();
+                player.endTurn();
+            }
+
             if (player.hasTurnEnded()) {
                 System.out.println(player.getName() + " skips a turn");
             } else {
