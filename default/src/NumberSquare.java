@@ -10,5 +10,22 @@
  * - 4
  */
 public class NumberSquare extends Square {
+    public int[] numbers;
+
+    public NumberSquare(int... numbers) {
+        this.numbers = numbers;
+    }
+
+    @Override
+    public void onTurnStart(Player player) {
+        int racePosition = player.getRacePosition();
+        for (int i=0; i<numbers.length; i++) {
+            if (racePosition == numbers[i]) {
+                player.addCarrots(racePosition * 10);
+                System.out.println(player.getName() + " gained " + (racePosition * 10) + " carrots for being in position " + racePosition);
+                return;
+            }
+        }
+    }
 
 }
