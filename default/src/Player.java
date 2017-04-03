@@ -74,9 +74,8 @@ public class Player {
 
     }
     public String getFormattedRacePosition() {
-        int position = getRacePosition();
-        String posString = position + "";
-        char endDigit = posString.charAt(posString.length() - 1);
+        String position = getRacePosition() + "";
+        char endDigit = position.charAt(position.length() - 1);
         switch (endDigit) {
             case '1': return position + "st";
             case '2': return position + "nd";
