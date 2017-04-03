@@ -18,6 +18,11 @@ public class Player {
     public int getBoardPosition() {
         return boardPosition;
     }
+    public String getFormattedBoardPosition() {
+        if (atEnd()) return "Finished";
+        if (boardPosition == 0) return "Start";
+        return boardPosition + "";
+    }
 
     public Square getSquare() {
         return board.getSquare(boardPosition);
@@ -67,6 +72,17 @@ public class Player {
 
         //Get position in race relative to other players (1st, 2nd, etc.)
 
+    }
+    public String getFormattedRacePosition() {
+        int position = getRacePosition();
+        String posString = position + "";
+        char endDigit = posString.charAt(posString.length() - 1);
+        switch (endDigit) {
+            case '1': return position + "st";
+            case '2': return position + "nd";
+            case '3': return position + "rd";
+            default: return position + "th";
+        }
     }
 
     public void endTurn() {

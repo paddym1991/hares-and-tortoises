@@ -23,7 +23,10 @@ public class GameController {
         boolean continueFlag = true;
         while (continueFlag) {
             player = board.getPlayer(0);
-            System.out.println(board.getPlayerName(0) + " position: " + player.getBoardPosition() + " (" + player.getRacePosition() + "st)");
+            int boardPosition = player.getBoardPosition();
+            System.out.println(board.getPlayerName(0) + " position: "
+                    + player.getFormattedBoardPosition()
+                    + " (" + player.getFormattedRacePosition() + ")");
             player.resetTurnStatus();
             player.getSquare().onTurnStart(player);
             if (player.hasTurnEnded()) {
@@ -42,7 +45,5 @@ public class GameController {
         }
 
     }
-
-
 
 }
