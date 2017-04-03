@@ -96,6 +96,15 @@ public class Board {
         return "Player " + (index+1);
     }
 
+    public int getRacePosition(Player player) {
+        int playersInFront = 0;
+        int pos = player.getBoardPosition();
+        for( Player rivalPlayer : players) {
+            if( rivalPlayer.getBoardPosition() > pos) { playersInFront++; }
+        }
+        return playersInFront + 1;
+    }
+
     public Square getSquare(int index) {
         return squares.get(index);
     }

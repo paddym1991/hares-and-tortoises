@@ -23,15 +23,21 @@ public class GameController {
         boolean continueFlag = true;
         while (continueFlag) {
             player = board.getPlayer(0);
-            System.out.println(board.getPlayerName(0) + " position: " + player.getBoardPosition());
-            System.out.println("Enter number of squares to move: ");
-            // int move = input.nextInt();
-            //put input.nextInt() into braces below.
-            player.movePlayer( input.nextInt() );
-            player.getSquare().onLandOn(player);
-            if (player.atEnd()) {
-                continueFlag = false;
-                System.out.println("You Win");
+            System.out.println(board.getPlayerName(0) + " position: " + player.getBoardPosition() + " (" + player.getRacePosition() + "st)");
+            player.resetTurnStatus();
+            player.getSquare().onTurnStart(player);
+            if (player.hasTurnEnded()) {
+                System.out.println(player.getName() + " skips a turn");
+            } else {
+                System.out.println("Enter number of squares to move: ");
+                // int move = input.nextInt();
+                //put input.nextInt() into braces below.
+                player.movePlayer(input.nextInt());
+                player.getSquare().onLandOn(player);
+                if (player.atEnd()) {
+                    continueFlag = false;
+                    System.out.println("You Win");
+                }
             }
         }
 

@@ -2,6 +2,9 @@ public class Player {
     private int boardPosition = 0;
     private Board board;
     private boolean faceDown;
+    private int carrots = 65;
+    private int lettuce = 3;
+    private boolean turnEnded = false;
 
     public Player(Board board) {
         this.board = board;
@@ -31,24 +34,28 @@ public class Player {
                                                 //(getBoardPosition).
     }
 
+    public void resetCarrots() {
+        carrots = 65;
+    }
+
     public int getCarrots() {
-        //TODO
-        return 0;
+        return carrots;
     }
     public void addCarrots(int amount) {
-        //TODO
+        carrots += amount;
     }
 
     public void takeCarrots(int amount) {
-        //TODO
+       carrots -= amount;
     }
 
     public int getLettuce() {
-        return 0; //TODO: Get actual result
+        return lettuce;
     }
 
     public void takeLettuce() {
-        //TODO: Reduce the player's stock of lettuce by one. No way to gain extra lettuce, an so addLettuce() method isn't needed.
+        //Reduce the player's stock of lettuce by one. No way to gain extra lettuce, an so addLettuce() method isn't needed.
+        lettuce--;
     }
 
     public String getName() {
@@ -56,11 +63,25 @@ public class Player {
     }
 
     public int getRacePosition() {
-        return 0; //TODO: Get position in race relative to other players (1st, 2nd, etc.)
+        return board.getRacePosition(this);
+
+        //Get position in race relative to other players (1st, 2nd, etc.)
+
     }
 
     public void endTurn() {
         //TODO: Called whenever an effect would end the player's turn without allowing them to move
+        turnEnded = true;
+    }
+    public boolean hasTurnEnded() {
+        return turnEnded;
+    }
+
+    /**
+     * Clears the turn ended flag.
+     */
+    public void resetTurnStatus() {
+        turnEnded = false;
     }
 
     //Used by Lettuce squares
@@ -70,7 +91,7 @@ public class Player {
 
     public void flipFaceDown() {
         faceDown = true;
-    }
+    } //House rule:    If you have to skip your next go, flip your token face down to keep track of it. On your next go, flip it up and skip your go.
 
     public void flipFaceUp() {
         faceDown = false;

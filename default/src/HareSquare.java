@@ -31,15 +31,6 @@
  */
 public class HareSquare extends Square {
     private static int[] deck = new int[]{0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7};
-    private static String[] cardText = {"If there are more players behind you than in front of you, miss a turn. If not, play again. If equal, of course play again.", //at index 0
-            "Restore your carrot holding to exactly 65. If you have more than 65, pay extras to the carrot patch; if fewer, draw extras from the carrot patch.", //at index 1
-            "Free Ride! Your last turn costs nothing; retrieve the carrots you paid to reach this square.", //at index 2
-            "Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.", //at index 3
-            "Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.", //at index 4
-            "Give 10 carrots to each player lying behind you in the race (if any). If you haven't enough carrots, give them five each; if still not possible, one each. A player who doesn't want extra carrots may discard them to the 'carrot patch'.", //at index 5
-            "Lose half your carrots! If an odd number, keep the odd one.", //at index 6
-            "Shuffle the hare cards and receive from each player 1 carrot for doing so. Do not replace this card at the bottom of the pack but include it in the shuffle.", //at index 7
-    };
     private static int currentCard = 0;
 
     /*
@@ -70,8 +61,8 @@ public class HareSquare extends Square {
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             case 3:
                 System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
-                int lettuceCardsArray[] = {1,2,3};
-                for(int counter=lettuceCardsArray.length - 1; counter >= -1;counter--) {
+
+                for(int counter=2; counter >= -1;counter--) {
                     if ( counter > -1 && counter <= 3 ) System.out.println("Draw 10 carrots for every lettuce card you have\n");
                     else System.out.println("You have no lettuce cards left, miss a turn\n");
                 }
@@ -91,16 +82,11 @@ public class HareSquare extends Square {
         break;
         default:
         //TODO: display some message to indicate something has gone wrong.
+            System.out.println("Something has gone wrong!!");
         break;
-    }
-
-
+        }
     currentCard++;
         if(currentCard >deck.length)currentCard =0;
-}
-
-    private String getCardText(int positionInDeck) {
-        return cardText[deck[positionInDeck]];
     }
 
     //random shuffle of cards
