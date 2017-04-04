@@ -5,6 +5,7 @@ public class Player {
     private int carrots = 65;
     private int lettuce = 3;
     private boolean turnEnded = false;
+    private int carrotsSpent = 0; //when player moves, carrotsSpent is assigned costToMove
 
     public Player(Board board) {
         this.board = board;
@@ -18,6 +19,7 @@ public class Player {
     public int getBoardPosition() {
         return boardPosition;
     }
+
     public String getFormattedBoardPosition() {
         if (atEnd()) return "Finished";
         if (boardPosition == 0) return "Start";
@@ -28,8 +30,16 @@ public class Player {
         return board.getSquare(boardPosition);
     }
 
-    public void movePlayer(int numberOfSquares) {
-        boardPosition += numberOfSquares;
+    private int costToMove(int numSquares) {
+        return (numSquares * (numSquares + 1))/2;
+    }
+
+
+
+    public void movePlayer(int numSquares) {
+        carrotsSpent = costToMove(numSquares);
+        takeCarrots(carrotsSpent);
+        boardPosition += numSquares;
     }
 
     public boolean atEnd() {
@@ -52,6 +62,16 @@ public class Player {
 
     public void takeCarrots(int amount) {
        carrots -= amount;
+    }
+
+    public int getCarrotsSpent() {
+        return carrotsSpent;
+    }
+
+    public boolean canMove(int numSquares) {
+        return board.getSquare(boardPosition + numSquares).canLandOn(this)
+                && (costToMove(numSquares) <= carrots);
+        //TODO: Check each separately; give message explaining why move is impossible
     }
 
     public int getLettuce() {
@@ -129,4 +149,6 @@ public class Player {
         int numberOfSquare = 0;
         return numberOfSquare;
     }
+
+
 }

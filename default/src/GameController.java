@@ -23,10 +23,14 @@ public class GameController {
         boolean continueFlag = true;
         while (continueFlag) {
             player = board.getPlayer(0);
-            int boardPosition = player.getBoardPosition();
-            System.out.println(board.getPlayerName(0) + " position: "
+            //int boardPosition = player.getBoardPosition();
+            System.out.println(
+                    board.getPlayerName(0) + " position: "
                     + player.getFormattedBoardPosition()
-                    + " (" + player.getFormattedRacePosition() + ")");
+                    + " (" + player.getFormattedRacePosition()
+                    + ") Carrots: " + player.getCarrots()
+                    + ", Lettuce: " + player.getLettuce()
+            );
 
             player.resetTurnStatus();
 
@@ -41,13 +45,14 @@ public class GameController {
                 System.out.println(player.getName() + " skips a turn");
             } else {
                 System.out.println("Enter number of squares to move: ");
-                // int move = input.nextInt();
-                //put input.nextInt() into braces below.
-                player.movePlayer(input.nextInt());
-                player.getSquare().onLandOn(player);
-                if (player.atEnd()) {
-                    continueFlag = false;
-                    System.out.println("You Win");
+                int numSquares = input.nextInt();
+                if (numSquares > 0 && player.canMove(numSquares)) {
+                    player.movePlayer(numSquares);
+                    player.getSquare().onLandOn(player);
+                    if (player.atEnd()) {
+                        continueFlag = false;
+                        System.out.println("You Win");
+                    }
                 }
             }
         }

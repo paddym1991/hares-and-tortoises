@@ -5,7 +5,11 @@ public class Square {
     }
 
     public boolean canLandOn(Player player) {
-        return true; //TODO: Check if it's possible to land on this square
+        Board board = player.getBoard();
+        for (Player p : player.getBoard().getPlayers()) {
+            if (board.getSquare(p.getBoardPosition()) == this) return false;
+        }
+        return true;
     }
 
     public void onLandOn(Player player) {

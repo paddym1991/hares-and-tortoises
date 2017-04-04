@@ -91,6 +91,7 @@ public class Board {
     public Player getPlayer(int index) {
         return players.get(index);
     }
+    public List<Player> getPlayers() {return players;}
     public String getPlayerName(Player player) {return getPlayerName(players.indexOf(player));}
     public String getPlayerName(int index) { //Could be replaced if the players can have custom names
         return "Player " + (index+1);
@@ -100,7 +101,9 @@ public class Board {
         int playersInFront = 0;
         int pos = player.getBoardPosition();
         for( Player rivalPlayer : players) {
-            if( rivalPlayer.getBoardPosition() > pos) { playersInFront++; }
+            if( rivalPlayer.getBoardPosition() > pos) {
+                playersInFront++;
+            }
         }
         return playersInFront + 1;
     }
