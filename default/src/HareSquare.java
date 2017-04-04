@@ -122,5 +122,4 @@ public class HareSquare extends Square {
             deck[i] = temp;
         }
     }
-
 }
