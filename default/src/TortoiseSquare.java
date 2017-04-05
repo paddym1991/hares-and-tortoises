@@ -2,7 +2,7 @@
 /* You have the opportunity to travel back to a tortoise square
      * This wil not cost the player any carrots
       * The player will earn 10 carrots for every square traveled backwards
-      * Paul Harmon 28/03/17 */
+       */
 
 
 import java.util.Scanner;
@@ -31,6 +31,7 @@ public class TortoiseSquare extends Square {
 
     public void onTurnStart(Player player) {
         if (player.getTortoise()) {
+
             int costOfCarrots = 0;
             /* It costs no carrots to move back to a tortoise square */
 
@@ -48,14 +49,16 @@ public class TortoiseSquare extends Square {
         System.out.println("Do you Wish to Travel to the Tortoise Square yes/no");
 
         if( a.equals ("yes") ) {
-            System.out.print("You will travel (NumberOfSquares) and you will earn (numberOfCarrots");
-        }else if (a.equals ("no")) {
+            System.out.print("You will travel (NumberOfSquares) and you will earn (carrotsEarned");
+        } else if (a.equals ("no")) {
             System.out.print("Choose how many squares to move");
         }
         else {
             System.out.print("Exit");
         }
+        System.out.println("If another player is currently on the nearest Tortoise you will have to wait until its free");
 
     }
 
 }
+
