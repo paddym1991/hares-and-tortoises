@@ -44,15 +44,57 @@ public class GameController {
             if (player.hasTurnEnded()) {
                 System.out.println(player.getName() + " skips a turn");
             } else {
-                System.out.println("Enter number of squares to move: ");
-                int numSquares = input.nextInt();
-                if (numSquares > 0 && player.canMove(numSquares)) {
-                    player.movePlayer(numSquares);
-                    player.getSquare().onLandOn(player);
-                    if (player.atEnd()) {
-                        continueFlag = false;
-                        System.out.println("You Win");
+                int lastTortoise = board.getClosestTortoise(player.getBoardPosition());
+                boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).canLandOn(player);
+
+                int numSquares = 0;
+                boolean retry = false;
+
+                do {
+                    if (tortoiseAvailable) {
+                        System.out.println("Enter number of squares to move, or enter 'T' to move back to the last tortoise: ");
+                    } else {
+                        System.out.println("Enter number of squares to move: ");
                     }
+
+                    String choice = input.nextLine();
+                    if (tortoiseAvailable && choice.trim().toUpperCase().equals("T")) {
+                        player.backToTortoise();
+                        retry = false;
+
+                    // CHEAT CODES - Set number of carrots to 5 with "CHEAT CARROTS 5"; comment out when unneeded
+                    } else if (choice.toUpperCase().startsWith("CHEAT CARROTS")) { player.addCarrots(Integer.parseInt(choice.split(" ")[2]) - player.getCarrots());
+                    } else if (choice.toUpperCase().equals("CHEAT LETTUCE")) { player.takeLettuce();
+
+                    } else {
+                        try {
+                            numSquares = Integer.parseInt(choice);
+                            if (numSquares > 0) {
+                                //Move the player
+                                if (player.canMove(numSquares)) { //Split this up
+                                    //One of the tests is (theSquareInQuestion instanceof TortoiseSquare)
+                                    //Check if (numSquares+player.getBoardPosition()) > board length
+                                    player.movePlayer(numSquares);
+                                    player.getSquare().onLandOn(player);
+                                    retry = false;
+                                } else {
+                                    //Error message: cannot move to square
+                                    retry = true;
+                                }
+                            } else {
+                                //Error message: negative number
+                                retry = true;
+                            }
+                        } catch (NumberFormatException e) {
+                            //Error message: not a number
+                            retry = true;
+                        }
+                    }
+                } while (retry);
+
+                if (player.atEnd()) {
+                    continueFlag = false;
+                    System.out.println(player.getName() + " Wins!");
                 }
             }
         }
