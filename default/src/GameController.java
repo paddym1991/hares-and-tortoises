@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
 /**
- * Created by Paddym1991 on 24/03/2017.
  *
- * Barebones implementation of a one-player boardgame. Player can move any number of squares each turn, squares have no
- * effects, and the game ends when they reach the end of the board.
+
+ *
  */
 public class GameController {
 
@@ -45,14 +44,15 @@ public class GameController {
                 System.out.println(player.getName() + " skips a turn");
             } else {
                 int lastTortoise = board.getClosestTortoise(player.getBoardPosition());
-                boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).canLandOn(player);
+                boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).isOccupied(player);
 
                 int numSquares = 0;
                 boolean retry = false;
 
                 do {
+                    //TODO: Accept 'W' (wait) if on carrot square
                     if (tortoiseAvailable) {
-                        System.out.println("Enter number of squares to move, or enter 'T' to move back to the last tortoise: ");
+                        System.out.println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + lastTortoise + "): ");
                     } else {
                         System.out.println("Enter number of squares to move: ");
                     }
@@ -69,23 +69,33 @@ public class GameController {
                     } else {
                         try {
                             numSquares = Integer.parseInt(choice);
-                            if (numSquares > 0) {
+                            if (numSquares >= 0) {
                                 //Move the player
-                                if (player.canMove(numSquares)) { //Split this up
-                                    //One of the tests is (theSquareInQuestion instanceof TortoiseSquare)
-                                    //Check if (numSquares+player.getBoardPosition()) > board length
-                                    player.movePlayer(numSquares);
-                                    player.getSquare().onLandOn(player);
-                                    retry = false;
+                                if (player.getSquareFree(numSquares)) {
+                                    if (player.enoughCarrots(numSquares)) {
+                                        player.movePlayer(numSquares);
+                                        player.getSquare().onLandOn(player);
+                                        retry = false;
+                                    } else {
+                                        System.out.println("You don't have enough carrots ");
+                                        //Error message: not enough carrots
+                                        retry = true;
+                                    }
                                 } else {
-                                    //Error message: cannot move to square
+                                    if (board.getSquare(player.getBoardPosition() + numSquares) instanceof TortoiseSquare)
+                                        System.out.println("You cannot move forwards onto a Tortoise square");
+                                    else
+                                        System.out.println("The square you want to travel onto is occupied ");
+                                    //Error message: Square not free
                                     retry = true;
                                 }
                             } else {
-                                //Error message: negative number
+                                //Error message: Must move at least one square
+                                System.out.println("You must move at least one square");
                                 retry = true;
                             }
                         } catch (NumberFormatException e) {
+                                System.out.println("Invalid entry !  ");
                             //Error message: not a number
                             retry = true;
                         }

@@ -69,9 +69,15 @@ public class Player {
     }
 
     public boolean canMove(int numSquares) {
-        return board.getSquare(boardPosition + numSquares).canLandOn(this)
-                && (costToMove(numSquares) <= carrots);
-        //TODO: Check each separately; give message explaining why move is impossible
+        return enoughCarrots( numSquares) && getSquareFree(numSquares);
+    }
+
+    public boolean getSquareFree(int numSquares) {
+        return board.getSquare(boardPosition + numSquares).canLandOn(this);
+    }
+
+    public boolean enoughCarrots(int numSquares){
+        return (costToMove(numSquares) <= carrots);
     }
 
     public int getLettuce() {

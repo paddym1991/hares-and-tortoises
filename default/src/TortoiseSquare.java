@@ -8,6 +8,9 @@
 
 public class TortoiseSquare extends Square {
 
-
+    @Override
+    public boolean canLandOn(Player player) {
+        return false;
+    }
 
 }
