@@ -133,17 +133,12 @@ public class Player {
     }
 
 
-
-
-
-
-    public void moveBackwards() {
+    public void backToTortoise() {
+        int newPosition = board.getClosestTortoise(boardPosition);
+        addCarrots(10 * (boardPosition - newPosition));
+        boardPosition = newPosition;
     }
 
-
-    public boolean getTortoise() {
-    return false;
-    }
 
     public int numberOfSquares() {
         int numberOfSquare = 0;

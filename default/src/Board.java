@@ -123,4 +123,11 @@ public class Board {
         return players.size();
     }
 
+    public int getClosestTortoise(int position) {
+        for (int i = position-1; i > 0; i--) {
+            if (getSquare(i) instanceof TortoiseSquare) return i;
+        }
+        return -1; //Nothing found
+    }
+
 }
