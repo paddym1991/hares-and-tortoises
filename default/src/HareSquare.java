@@ -60,7 +60,6 @@ public class HareSquare extends Square {
                 System.out.println("Free Ride! Your last turn costs nothing; retrieve the carrots you paid to reach this square.");
                 player.addCarrots(player.getCarrotsSpent());
                 break;
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             case 3:
                 System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
                 if (player.getLettuce() == 0) {
@@ -71,19 +70,40 @@ public class HareSquare extends Square {
                     player.addCarrots(player.getLettuce() * 10);
                     System.out.println(player.getLettuce() * 10 + " carrots were added to your stock.");
                 }
-                //for(int counter=2; counter >= -1;counter--) {
-                //    if ( counter > -1 && counter <= 3 ) System.out.println("Draw 10 carrots for every lettuce card you have\n");
-                  //  else System.out.println("You have no lettuce cards left, miss a turn\n");
-                //}
                 break;
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             case 4:
                 System.out.println("Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.");
                 System.out.println("You have " + player.getCarrots() + "  carrots left");
                 break;
             case 5:
-                System.out.println("Give 10 carrots to each player lying behind you in the race (if any). If you haven't enough carrots, give them five each; if still not possible, one each. A player who doesn't want extra carrots may discard them to the 'carrot patch'.");
-                //TODO: no. of players behind. give them 10 carrots each, or 5 carrots, or 1 carrot
+                System.out.println("Give 10 carrots to each player lying behind you in the race (if any). " +
+                                   "If you haven't enough carrots, give them five each; if still not possible, one each. " +
+                                   "A player who doesn't want extra carrots may discard them to the 'carrot patch'.");
+
+                int position = player.getBoardPosition();
+                int howManyCarrotsIHave  =  player.getCarrots();
+                int numberOfPlayerOnBoard  = player.getBoard().noOfPlayers();
+
+                if((howManyCarrotsIHave / numberOfPlayerOnBoard) > 10) {
+                    for (Player p : player.getBoard().getPlayers()) {
+                        if ( p.getBoardPosition() < position ) {
+                            p.addCarrots(10);
+                        }
+                    }
+                }else if ((howManyCarrotsIHave / numberOfPlayerOnBoard) > 5) {
+                    for (Player p : player.getBoard().getPlayers()) {
+                        if ( p.getBoardPosition() < position ) {
+                            p.addCarrots(5);
+                        }
+                    }
+                }else if ((howManyCarrotsIHave / numberOfPlayerOnBoard) > 1) {
+                    for (Player p : player.getBoard().getPlayers()) {
+                        if ( p.getBoardPosition() < position ) {
+                            p.addCarrots(1);
+                        }
+                    }
+                    player.endTurn();
+                }
                 break;
             case 6:
                 System.out.println("Lose half your carrots! If an odd number, keep the odd one.");
