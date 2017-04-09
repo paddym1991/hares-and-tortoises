@@ -23,14 +23,15 @@ public class GameController {
         while (continueFlag) {
             player = board.getPlayer(0);
             //int boardPosition = player.getBoardPosition();
+            System.out.println("------------------------------");
             System.out.println(
                     board.getPlayerName(0) + " position: "
                     + player.getFormattedBoardPosition()
                     + " (" + player.getFormattedRacePosition()
-                    + ") Carrots: " + player.getCarrots()
+                    + ")\nCarrots: " + player.getCarrots()
                     + ", Lettuce: " + player.getLettuce()
             );
-
+            System.out.println("------------------------------");
             player.resetTurnStatus();
 
             player.getSquare().onTurnStart(player);
