@@ -42,7 +42,7 @@ public class GameController {
             }
 
             if (player.hasTurnEnded()) {
-                System.out.println(player.getName() + " skips a turn");
+                System.err.println(player.getName() + " skips a turn");
             } else {
                 int lastTortoise = board.getClosestTortoise(player.getBoardPosition());
                 boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).isOccupied(player);

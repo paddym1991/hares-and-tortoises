@@ -73,12 +73,12 @@ public class HareSquare extends Square {
                 break;
             case 4:
                 System.out.println("Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.");
-                System.out.println(">> You have " + player.getCarrots() + "  carrots left <<");//just added signs on the end
+                System.out.println(">> You have " + player.getCarrots() + " carrots left <<");//just added signs on the end
                 break;
             case 5:
-                System.out.println("Give 10 carrots to each player lying behind you in the race (if any). "
-                        + "If you haven't enough carrots, give them five each; if still not possible, one each. "
-                        + "A player who doesn't want extra carrots may discard them to the 'carrot patch'.");
+                System.out.println("** Give 10 carrots to each player lying behind you in the race (if any) **");
+                System.out.println("** If you haven't enough carrots, give them five each; if still not possible, one each **");
+                System.out.println("** A player who doesn't want extra carrots may discard them to the 'carrot patch' **");
 
                 int position = player.getBoardPosition();// gets player position on board
                 int howManyCarrotsIHave = player.getCarrots();// returns how many carrots the player has
