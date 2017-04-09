@@ -78,25 +78,25 @@ public class GameController {
                                         player.getSquare().onLandOn(player);
                                         retry = false;
                                     } else {
-                                        System.out.println("You don't have enough carrots ");
+                                        System.err.println("You don't have enough carrots ");
                                         //Error message: not enough carrots
                                         retry = true;
                                     }
                                 } else {
                                     if (board.getSquare(player.getBoardPosition() + numSquares) instanceof TortoiseSquare)
-                                        System.out.println("You cannot move forwards onto a Tortoise square");
+                                        System.err.println("You cannot move forwards onto a Tortoise square");
                                     else
-                                        System.out.println("The square you want to travel onto is occupied ");
+                                        System.err.println("The square you want to travel onto is occupied ");
                                     //Error message: Square not free
                                     retry = true;
                                 }
                             } else {
                                 //Error message: Must move at least one square
-                                System.out.println("You must move at least one square");
+                                System.err.println("You must move at least one square");
                                 retry = true;
                             }
                         } catch (NumberFormatException e) {
-                                System.out.println("Invalid entry !  ");
+                                System.err.println("Invalid entry !  ");
                             //Error message: not a number
                             retry = true;
                         }

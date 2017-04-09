@@ -81,7 +81,7 @@ public class ConsoleMenu{
                     new GameController();
                     break;
                 default:
-                    System.out.println(">>>>>>>>>>> INVALID OPTION <<<<<<<<<<<\n");
+                    System.err.println(">>>>>>>>>>> INVALID OPTION <<<<<<<<<<<\n");
                     System.out.println("           Please try again\n");
                     break;
             }

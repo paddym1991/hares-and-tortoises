@@ -77,29 +77,35 @@ public class HareSquare extends Square {
                 break;
             case 5:
                 System.out.println("Give 10 carrots to each player lying behind you in the race (if any). "
-                                 + "If you haven't enough carrots, give them five each; if still not possible, one each. "
-                                 + "A player who doesn't want extra carrots may discard them to the 'carrot patch'.");
+                        + "If you haven't enough carrots, give them five each; if still not possible, one each. "
+                        + "A player who doesn't want extra carrots may discard them to the 'carrot patch'.");
 
                 int position = player.getBoardPosition();// gets player position on board
                 int howManyCarrotsIHave = player.getCarrots();// returns how many carrots the player has
                 int numberOfPlayersOnBoard = player.getBoard().noOfPlayers();// returns the amount of players on board
 
                 if ((howManyCarrotsIHave / numberOfPlayersOnBoard) > 10) {// if amount / players on board greater than 10 then,
-                    for (Player opponent : player.getBoard().getPlayers()) {// for each opponent that is on the board,
-                        if (opponent.getBoardPosition() < position) {// if their board position is less than your position,
-                            opponent.addCarrots(10);// they receive 10 carrots each.
+                    for (Player currentPlayer : player.getBoard().getPlayers()) {// for each current player that is on the board,
+                        if (currentPlayer != player){// and is NOT the current player then,
+                            if (currentPlayer.getBoardPosition() < position) {// if their board position is less than your position,
+                                currentPlayer.addCarrots(10);// they receive 10 carrots each.
+                            }
                         }
                     }
-                } else if ((howManyCarrotsIHave / numberOfPlayersOnBoard) > 5) {// if amount / players on board greater than 5 then,
-                    for (Player opponent : player.getBoard().getPlayers()) {// for each opponent that is on the board,
-                        if (opponent.getBoardPosition() < position) {// if their board position is less than your position,
-                            opponent.addCarrots(5);// they receive 5 carrots each.
+                }else if ((howManyCarrotsIHave / numberOfPlayersOnBoard) > 5) {// if amount / players on board greater than 5 then,
+                    for (Player currentPlayer : player.getBoard().getPlayers()) {// for each current player that is on the board,
+                        if (currentPlayer != player){// and is NOT the current player then,
+                            if (currentPlayer.getBoardPosition() < position) {// if their board position is less than your position,
+                                currentPlayer.addCarrots(5);// they receive 5 carrots each.
+                            }
                         }
                     }
-                } else if ((howManyCarrotsIHave / numberOfPlayersOnBoard) > 1) {// if amount / players on board greater than 1 then,
-                    for (Player opponent : player.getBoard().getPlayers()) {// for each opponent that is on the board,
-                        if (opponent.getBoardPosition() < position) {// if their board position is less than your position,
-                            opponent.addCarrots(1);// they receive 1 carrot each.
+                }else if ((howManyCarrotsIHave / numberOfPlayersOnBoard) > 1) {// if amount / players on board greater than 1 then,
+                    for (Player currentPlayer : player.getBoard().getPlayers()) {// for each current player that is on the board,
+                        if (currentPlayer != player){// and is NOT the current player then,
+                            if (currentPlayer.getBoardPosition() < position) {// if their board position is less than your position,
+                                currentPlayer.addCarrots(1);// they receive 1 carrot each.
+                            }
                         }
                     }
                     player.endTurn();//ends the players turn.
@@ -121,7 +127,7 @@ public class HareSquare extends Square {
                 }
             break;
             default:
-                System.out.println("Something has gone wrong!!");
+                System.err.println("Something has gone wrong!!");
             break;
         }
     currentCard++;
