@@ -1,3 +1,18 @@
+/**
+ * <pre>
+ * This class handles the Player on the game board.
+ * Along with the standard constructors, getters and setters there are methods that :
+ * -- Calculate the cost of carrots needed to move to a square chosen by the player
+ * --
+ *
+ *
+ *
+ * </pre>
+ *
+ * @author
+ * @version
+ */
+
 public class Player {
     private int boardPosition = 0;
     private Board board;
@@ -154,4 +169,9 @@ public class Player {
         addCarrots(10 * (boardPosition - newPosition));
         boardPosition = newPosition;
     }
+    
 }
+
+    //If player has no valid moves. Return to start square. restore carrots to 65, don't change lettuce
+
+

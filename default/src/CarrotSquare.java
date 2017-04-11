@@ -6,6 +6,22 @@
  */
 import java.util.Scanner;
 
+/**
+ * <pre>
+ * This class handles the Carrot Square on the game board.
+ * The Rules with the Carrot Square are :
+ * -- Nothing happens immediately when you land on the square
+ * -- On the next turn you may stay where you are and earn 10 carrots
+ * -- Once you are on a Carrot Square you may miss as many turns as you like earning 10 Carrots each turn.
+ *
+ * </pre>
+ *
+ * @author
+ * @version
+ */
+
+
+
 public class CarrotSquare extends Square {
 
         public void onTurnStart(Player player) {

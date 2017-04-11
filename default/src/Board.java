@@ -1,3 +1,25 @@
+/**
+ * <pre>
+ * This class handles the collection of Board squares.
+ * The details stored include
+ * --Name and position of board squares.
+ * --Number of players
+ *
+ *
+ * Along with the standard constructors, getters and setters there are methods that :
+ *-- List current Race Position
+ *-- List current Square
+ *-- List number of players playing
+ *-- List player name by using the String "Player" followed by the index number
+ *-- Display the position of the nearest Tortoise Square
+ *
+ *
+ * </pre>
+ *
+ * @author
+ * @version
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
