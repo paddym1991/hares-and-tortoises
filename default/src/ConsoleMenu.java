@@ -4,6 +4,8 @@
  *
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ConsoleMenu{
@@ -54,28 +56,28 @@ public class ConsoleMenu{
             switch (option)
             {
                 case 1:
-                    new Introduction().intro();
+                    Introduction.intro();
                     break;
                 case 2:
-                    new Introduction().guide();
+                     Introduction.guide();
                     break;
                 case 3:
-                    new Introduction().ready();
+                    Introduction.ready();
                     break;
                 case 4:
-                    new Introduction().raceCard();
+                    Introduction.raceCard();
                     break;
                 case 5:
-                    new Introduction().object();
+                    Introduction.object();
                     break;
                 case 6:
-                    new Introduction().move();
+                    Introduction.move();
                     break;
                 case 7:
-                    new Introduction().home();
+                    Introduction.home();
                     break;
                 case 8:
-                    new Introduction().cantMove();
+                    Introduction.cantMove();
                     break;
                 case 9:
                     new GameController();
@@ -97,6 +99,7 @@ public class ConsoleMenu{
         System.out.println("**************************************\n");
         System.exit(0);
     }
+
 }
 
 

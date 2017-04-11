@@ -44,12 +44,15 @@ public class HareSquare extends Square {
         System.out.println("You have landed on a Hare Square. Please pick up a Hare card");
         //System.out.println( getCardText(currentCard) );
         switch (deck[currentCard]) {
+        //  switch(0) {
             case 0:
                 System.out.println("If there are more players behind you than in front of you, miss a turn. If not, play again. If equal, of course play again.");
-                if ( player.getRacePosition() > player.getBoard().noOfPlayers() / 2 ) {
+                if ( player.getRacePosition() < player.getBoard().noOfPlayers() / 2 ) {
                     player.flipFaceDown();
+                    System.out.println("You will skip your next turn");
                 } else {
-                    //TODO: take a second go
+                    player.takeAnotherTurn();
+                    System.out.println("Take an extra turn");
                 }
                 break;
             case 1:

@@ -111,6 +111,9 @@ public class Board {
     public Square getSquare(int index) {
         return squares.get(index);
     }
+    public int getSquareIndex(Square square) {
+        return squares.indexOf(square);
+    }
 
     public boolean atEnd(int position) {
         if (position >= squares.size()-1) {
@@ -118,6 +121,8 @@ public class Board {
         }
         return false;
     }
+
+    public int length() {return squares.size();}
 
     public int noOfPlayers() {
         return players.size();
@@ -128,6 +133,14 @@ public class Board {
             if (getSquare(i) instanceof TortoiseSquare) return i;
         }
         return -1; //Nothing found
+    }
+
+    public int noOfPlayersFinished() {
+        int result = 0;
+        for (Player player : players) {
+            if (player.atEnd()) result++;
+        }
+        return result;
     }
 
 }

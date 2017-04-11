@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class CarrotSquare extends Square {
 
-        public void onLandOn(Player player) {
+        public void onTurnStart(Player player) {
             Scanner input = new Scanner(System.in);
-            System.out.println("  You Have Landed on a Carrot Square");
+            System.out.println("      You are on a Carrot Square");
             System.out.println("**************************************");
             System.out.println("==========Enter your choice===========");
             System.out.println("1) Stay where you are and gain 10 carrots?");
@@ -22,11 +22,12 @@ public class CarrotSquare extends Square {
                 case 1:
                     System.out.println("You have chosen to stay and gained 10 carrots!\n");
                     player.addCarrots(10);
-
+                    player.endTurn();
                     break;
                 case 2:
                     System.out.println("You have chosen to stay and discarded 10 carrots!\n");
                     player.takeCarrots(10);
+                    player.endTurn();
                     break;
                 case 3:
                     System.out.println("You have chosen to take your turn as normal!\n");

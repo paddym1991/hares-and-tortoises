@@ -11,7 +11,7 @@
 
 public class Introduction{
 
-    public void intro(){
+    public static void intro(){
         System.out.println("**************************************");
         System.out.println("            INTRODUCTION");
         System.out.println("**************************************");
@@ -59,7 +59,7 @@ public class Introduction{
                 + "    And may the best animal win!\n");
     }
 
-    public void guide(){
+    public static void guide(){
         System.out.println("**************************************");
         System.out.println("        QUICK REFERENCE GUIDE");
         System.out.println("**************************************");
@@ -96,7 +96,7 @@ public class Introduction{
                 + "instructions.\n");
     }
 
-    public void ready(){
+    public static void ready(){
         System.out.println("**************************************");
         System.out.println("            GETTING READY");
         System.out.println("**************************************");
@@ -121,7 +121,8 @@ public class Introduction{
                 + "are made into or out of this patch.\n");
     }
 
-    public void raceCard(){
+    /*
+    public static void raceCard(){
         System.out.println("**************************************");
         System.out.println("              RACE CARD");
         System.out.println("**************************************");
@@ -132,33 +133,33 @@ public class Introduction{
         System.out.println("  Squares Moved       Cost in Carrots  ");
         System.out.println("=======================================");
         System.out.println("	1	    	   1");
-        System.out.println("	2		   3");
-        System.out.println("	3		   6");
+        System.out.println("	2		       3");
+        System.out.println("	3		       6");
         System.out.println("	4          	   10");
         System.out.println(" 	5          	   15");
-        System.out.println("	6 		   21");
+        System.out.println("	6 		       21");
         System.out.println("	7          	   28");
         System.out.println("  	8          	   36");
-        System.out.println("	9                  45");
-        System.out.println("	10                 55");
+        System.out.println("	9              45");
+        System.out.println("	10             55");
         System.out.println("	11	    	   66");
-        System.out.println("	12		   78");
-        System.out.println("	13		   91");
-        System.out.println("	14          	   105");
-        System.out.println(" 	15          	   120");
-        System.out.println("	16 		   136");
-        System.out.println("	17          	   153");
-        System.out.println("  	18          	   171");
-        System.out.println("	19                 190");
-        System.out.println("	20                 210");
-        System.out.println("	22		   253");
-        System.out.println("	23		   276");
-        System.out.println("	24          	   300");
-        System.out.println(" 	25          	   325");
-        System.out.println("	26 		   351");
-        System.out.println("	27          	   378");
-        System.out.println("  	28          	   406");
-        System.out.println("	29                 435");
+        System.out.println("	12		       78");
+        System.out.println("	13		       91");
+        System.out.println("	14         	   105");
+        System.out.println(" 	15         	   120");
+        System.out.println("	16 	    	   136");
+        System.out.println("	17         	   153");
+        System.out.println("  	18         	   171");
+        System.out.println("	19             190");
+        System.out.println("	20             210");
+        System.out.println("	22		       253");
+        System.out.println("	23		       276");
+        System.out.println("	24             300");
+        System.out.println(" 	25         	   325");
+        System.out.println("	26 		       351");
+        System.out.println("	27             378");
+        System.out.println("  	28         	   406");
+        System.out.println("	29             435");
         System.out.println("	30                 465");
         System.out.println("	31	    	   496");
         System.out.println("	32		   528");
@@ -171,8 +172,62 @@ public class Introduction{
         System.out.println("	39                 780");
         System.out.println("	40                 820\n");
     }
+    */
 
-    public void object(){
+    public static void raceCard() {
+        System.out.println("**************************************");
+        System.out.println("**********    Race Card       ********");
+        System.out.println("**************************************");
+        System.out.println("|Cost of moving: Each square you move|\n"
+                         + "|   forward on the board costs you   |\n"
+                         + "|        carrots as follows:         |");
+        System.out.println("======================================");
+        System.out.println("|   Squares Moved | Cost in Carrots  |");
+        System.out.println("|         1       |       1          |");
+        System.out.println("|         2       |       3          |");
+        System.out.println("|         3       |       6          |");
+        System.out.println("|         4       |       10         |");
+        System.out.println("|         5       |       15         |");
+        System.out.println("|         6       |       21         |");
+        System.out.println("|         7       |       28         |");
+        System.out.println("|         8       |       36         |");
+        System.out.println("|         9       |       45         |");
+        System.out.println("|         10      |       55         |");
+        System.out.println("|         11      |       66         |");
+        System.out.println("|         12      |       78         |");
+        System.out.println("|         13      |       91         |");
+        System.out.println("|         14      |       105        |");
+        System.out.println("|         15      |       120        |");
+        System.out.println("|         16      |       136        |");
+        System.out.println("|         17      |       153        |");
+        System.out.println("|         18      |       171        |");
+        System.out.println("|         19      |       190        |");
+        System.out.println("|         20      |       210        |");
+        System.out.println("|         21      |       231        |");
+        System.out.println("|         22      |       253        |");
+        System.out.println("|	      23	  |	      276        |");
+        System.out.println("|      	  24      |       300        |");
+        System.out.println("|      	  25      |   	  325        |");
+        System.out.println("|   	  26 	  |	      351        |");
+        System.out.println("|	      27      |       378        |");
+        System.out.println("|  	      28      |   	  406        |");
+        System.out.println("|	      29      |       435        |");
+        System.out.println("|	      30      |       465        |");
+        System.out.println("|	      31	  |  	  496        |");
+        System.out.println("|	      32	  |	      528        |");
+        System.out.println("|	      33	  |	      561        |");
+        System.out.println("|	      34      |    	  595        |");
+        System.out.println("|	      35      |    	  630        |");
+        System.out.println("|	      36 	  |	      666        |");
+        System.out.println("|	      37      |    	  703        |");
+        System.out.println("|  	      38      |    	  741        |");
+        System.out.println("|	      39      |       780        |");
+        System.out.println("|	      40      |       820        |");
+        System.out.println("|                                    |");
+        System.out.println("+************************************+");
+    }
+
+    public static void object(){
         System.out.println("**************************************");
         System.out.println("          OBJECT OF THE GAME");
         System.out.println("**************************************");
@@ -186,7 +241,7 @@ public class Introduction{
                 + ">> 3rd allowed 30 carrots and so on..\n");
     }
 
-    public void move(){
+    public static void move(){
         System.out.println("**************************************");
         System.out.println("             HOW TO MOVE");
         System.out.println("**************************************");
@@ -203,7 +258,7 @@ public class Introduction{
                 + "earning carrots, as explained earlier.\n");
     }
 
-    public void home(){
+    public static void home(){
         System.out.println("**************************************");
         System.out.println("             GETTING HOME");
         System.out.println("**************************************");
@@ -225,7 +280,7 @@ public class Introduction{
                 + "using lettuce and number squares.\n");
     }
 
-    public void cantMove(){
+    public static void cantMove(){
         System.out.println("**************************************");
         System.out.println("              CAN'T MOVE");
         System.out.println("**************************************");

@@ -6,6 +6,7 @@ public class Player {
     private int lettuce = 3;
     private boolean turnEnded = false;
     private int carrotsSpent = 0; //when player moves, carrotsSpent is assigned costToMove
+    private boolean anotherTurn;
 
     public Player(Board board) {
         this.board = board;
@@ -30,7 +31,7 @@ public class Player {
         return board.getSquare(boardPosition);
     }
 
-    private int costToMove(int numSquares) {
+    public static int costToMove(int numSquares) {
         return (numSquares * (numSquares + 1))/2;
     }
 
@@ -68,9 +69,7 @@ public class Player {
         return carrotsSpent;
     }
 
-    public boolean canMove(int numSquares) {
-        return enoughCarrots( numSquares) && getSquareFree(numSquares);
-    }
+   // public boolean canMove(int numSquares) {return enoughCarrots( numSquares) && getSquareFree(numSquares);}
 
     public boolean getSquareFree(int numSquares) {
         return board.getSquare(boardPosition + numSquares).canLandOn(this);
@@ -138,18 +137,21 @@ public class Player {
         faceDown = false;
     }
 
+    public boolean hasAnotherTurn() {
+        return anotherTurn;
+    }
+
+    public void noMoreTurns() {
+        anotherTurn = false;
+    }
+
+    public void takeAnotherTurn() {
+        anotherTurn = true;
+    }
 
     public void backToTortoise() {
         int newPosition = board.getClosestTortoise(boardPosition);
         addCarrots(10 * (boardPosition - newPosition));
         boardPosition = newPosition;
     }
-
-
-    public int numberOfSquares() {
-        int numberOfSquare = 0;
-        return numberOfSquare;
-    }
-
-
 }
