@@ -19,7 +19,7 @@ public class Introduction{
         GameController.println("Playing time:         45-60 minutes");
         GameController.println("Contents:             1 gameboard\n"
                 +"                      6 tokens\n"
-                +"	              6 race cards\n"
+                +"	                  6 race cards\n"
                 +"                      15 hare cards\n"
                 +"                      18 lettuce cards\n"
                 +"\nCarrot cards in denominations of:\n"

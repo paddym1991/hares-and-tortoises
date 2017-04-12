@@ -4,7 +4,6 @@
  * - End your turn without moving, pay 10 carrots
  * - Take your turn (and movement) as normal
  */
-import java.util.Scanner;
 
 /**
  * <pre>
@@ -24,34 +23,41 @@ import java.util.Scanner;
 
 public class CarrotSquare extends Square {
 
-        public void onTurnStart(Player player) {
-            GameController.println("      You are on a Carrot Square");
-            GameController.println("**************************************");
+    public void onTurnStart(Player player) {
+        GameController.println("      You are on a Carrot Square");
+        GameController.println("**************************************");
+
+        boolean invalidInput = true;
+        while (invalidInput) {
             GameController.println("==========Enter your choice===========");
             GameController.println("1) Stay where you are and gain 10 carrots?");
             GameController.println("2) Stay where you are an discard 10 carrots?");
             GameController.println("3) Or take your turn as normal?");
+
             int num;
-            num = GameController.getPosInt("> ");//returns next int by user
+            num = GameController.getPosInt("> ");//returns next int by use
             switch (num) {
                 case 1:
+                    invalidInput = false;
                     GameController.println("You have chosen to stay and gained 10 carrots!\n");
                     player.addCarrots(10);
                     player.endTurn();
                     break;
                 case 2:
+                    invalidInput = false;
                     GameController.println("You have chosen to stay and discarded 10 carrots!\n");
                     player.takeCarrots(10);
                     player.endTurn();
                     break;
                 case 3:
+                    invalidInput = false;
                     GameController.println("You have chosen to take your turn as normal!\n");
                     break;
                 default:
+                    invalidInput = true;
                     GameController.printlnErr("***** Invalid Option... Try Again *****\n");
             }
         }
     }
 
-
-
+}

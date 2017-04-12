@@ -54,7 +54,6 @@ public class GameController {
                 boolean retry = false;
 
                 do {
-                    //TODO: Accept 'W' (wait) if on carrot square
                     if (tortoiseAvailable) {
                         println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + lastTortoise + "): ");
                     } else {
