@@ -17,35 +17,34 @@ public class ConsoleMenu{
     }
 
     public ConsoleMenu(){
-        System.out.println("**************************************");
-        System.out.println("                WELCOME");
-        System.out.println("                  TO");
-        System.out.println("          THE HARE & TORTOISE");
-        System.out.println("                 GAME");
-        System.out.println("**************************************");
-        input = new Scanner(System.in);
-        System.out.println("        Press ENTER to continue");
-        input.nextLine();
+        GameController.println("**************************************");
+        GameController.println("                WELCOME");
+        GameController.println("                  TO");
+        GameController.println("          THE HARE & TORTOISE");
+        GameController.println("                 GAME");
+        GameController.println("**************************************");
+        GameController.println("        Press ENTER to continue");
+        GameController.getInput("");
         runMenu();
     }
 
     public int mainMenu(){
-        System.out.println("**************************************");
-        System.out.println("*********** MENU SELECTION ***********");
-        System.out.println("======================================");
-        System.out.println("| Select and Press Enter:            |");
-        System.out.println("|   1) Introduction                  |");
-        System.out.println("|     2) Quick Reference Guide       |");
-        System.out.println("|       3) Getting Ready             |");
-        System.out.println("|        4) Race Card                |");
-        System.out.println("|         5) Object of the Game      |");
-        System.out.println("|          6) How to Move            |");
-        System.out.println("|           7) Getting Home          |");
-        System.out.println("|            8) Can't Move           |");
-        System.out.println("|             9) LETS PLAY THE GAME  |");
-        System.out.println("|              0) Exit               |");
-        System.out.println("+************************************+");
-        return input.nextInt();
+        GameController.println("**************************************");
+        GameController.println("*********** MENU SELECTION ***********");
+        GameController.println("======================================");
+        GameController.println("| Select and Press Enter:            |");
+        GameController.println("|   1) Introduction                  |");
+        GameController.println("|     2) Quick Reference Guide       |");
+        GameController.println("|       3) Getting Ready             |");
+        GameController.println("|        4) Race Card                |");
+        GameController.println("|         5) Object of the Game      |");
+        GameController.println("|          6) How to Move            |");
+        GameController.println("|           7) Getting Home          |");
+        GameController.println("|            8) Can't Move           |");
+        GameController.println("|             9) LETS PLAY THE GAME  |");
+        GameController.println("|              0) Exit               |");
+        GameController.println("+************************************+");
+        return GameController.getPosInt("> ");
     }
 
     public void runMenu()
@@ -83,20 +82,19 @@ public class ConsoleMenu{
                     new GameController();
                     break;
                 default:
-                    System.err.println(">>>>>>>>>>> INVALID OPTION <<<<<<<<<<<\n");
-                    System.out.println("           Please try again\n");
+                    GameController.printlnErr(">>>>>>>>>>> INVALID OPTION <<<<<<<<<<<\n");
+                    GameController.println("           Please try again\n");
                     break;
             }
-            System.out.println("======================================");
-            System.out.println("Press \"Enter\" to Return to Main Menu");
-            System.out.println("======================================\n\n");
-            input.nextLine();
-            input.nextLine();
+            GameController.println("======================================");
+            GameController.println("Press \"Enter\" to Return to Main Menu");
+            GameController.println("======================================\n\n");
+            GameController.getInput("");
             option = mainMenu();
         }
-        System.out.println("\n**************************************");
-        System.out.println(">>> Hope to see you back here soon <<<");
-        System.out.println("**************************************\n");
+        GameController.println("\n**************************************");
+        GameController.println(">>> Hope to see you back here soon <<<");
+        GameController.println("**************************************\n");
         System.exit(0);
     }
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class GameController {
 
-    private Scanner input;
+    private static Scanner input = new Scanner(System.in);
     private Board board;
 
     public static void main(String[] args) {
@@ -15,7 +15,6 @@ public class GameController {
     }
 
     public GameController() {
-        input = new Scanner(System.in);
         Player player;
         HareSquare.shuffle();
 
@@ -27,15 +26,15 @@ public class GameController {
         while (continueFlag) {
             player = board.getPlayer(currentPlayer);
             //int boardPosition = player.getBoardPosition();
-            System.out.println("------------------------------------");
-            System.out.println(
+            println("------------------------------------");
+            println(
                     board.getPlayerName(currentPlayer) + " position: "
                             + player.getFormattedBoardPosition()
                             + " (" + player.getFormattedRacePosition()
                             + ")\nCarrots: " + player.getCarrots()
                             + ", Lettuce: " + player.getLettuce()
             );
-            System.out.println("------------------------------------");
+            println("------------------------------------");
             player.resetTurnStatus();
 
             player.getSquare().onTurnStart(player);
@@ -46,7 +45,7 @@ public class GameController {
             }
 
             if (player.hasTurnEnded()) {
-                System.out.println(player.getName() + " skips a turn");
+                println(player.getName() + " skips a turn");
             } else {
                 int lastTortoise = board.getClosestTortoise(player.getBoardPosition());
                 boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).isOccupied(player);
@@ -57,9 +56,9 @@ public class GameController {
                 do {
                     //TODO: Accept 'W' (wait) if on carrot square
                     if (tortoiseAvailable) {
-                        System.out.println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + lastTortoise + "): ");
+                        println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + lastTortoise + "): ");
                     } else {
-                        System.out.println("Enter number of squares to move: ");
+                        println("Enter number of squares to move: ");
                     }
 
                     String choice = input.nextLine();
@@ -87,33 +86,33 @@ public class GameController {
                                             player.getSquare().onLandOn(player);
                                             retry = false;
                                         } else {
-                                            System.out.println("You don't have enough carrots ");
+                                            println("You don't have enough carrots ");
                                             //Error message: not enough carrots
                                             retry = true;
                                         }
                                     } else {
                                         if (board.getSquare(player.getBoardPosition() + numSquares) instanceof TortoiseSquare) {
-                                            System.out.println("You cannot move forwards onto a Tortoise square");
+                                            println("You cannot move forwards onto a Tortoise square");
                                         } else if (board.getSquare(player.getBoardPosition() + numSquares) instanceof EndSquare) {
-                                            System.out.println("You must have 0 Lettuce and no more than "
+                                            println("You must have 0 Lettuce and no more than "
                                                     + ((board.noOfPlayersFinished() + 1) * 10) + " Carrots to cross the finish line");
                                         } else {
-                                            System.out.println("The square you want to travel onto is occupied ");
+                                            println("The square you want to travel onto is occupied ");
                                         }
                                         //Error message: Square not free
                                         retry = true;
                                     }
                                 } else {
-                                    System.out.println("You cannot move past the end of the board");
+                                    println("You cannot move past the end of the board");
                                     retry = true;
                                 }
                             } else {
                                 //Error message: Must move at least one square
-                                System.out.println("You must move at least one square");
+                                println("You must move at least one square");
                                 retry = true;
                             }
                         } catch (NumberFormatException e) {
-                            System.out.println("Invalid entry !  ");
+                            println("Invalid entry !  ");
                             //Error message: not a number
                             retry = true;
                         }
@@ -122,7 +121,7 @@ public class GameController {
 
                 if (player.atEnd()) {
                     continueFlag = false;
-                    System.out.println(player.getName() + " Wins!");
+                    println(player.getName() + " Wins!");
                 }
             }
             if (player.hasAnotherTurn()) {
@@ -130,7 +129,7 @@ public class GameController {
             } else {
                 currentPlayer++;
                 if (currentPlayer == board.noOfPlayers()) currentPlayer = 0;
-                System.out.println();
+                println("");
                // clearScreen();
             }
         }
@@ -142,4 +141,29 @@ public class GameController {
         System.out.flush();
     }
     */
+
+
+    public static void println(String text) {
+        System.out.println(text);
+    }
+    public static void printlnErr(String text) {
+        System.err.println(text);
+    }
+
+    public static String getInput(String prompt) {
+        System.out.print(prompt);
+        return input.nextLine();
+    }
+
+    /**
+     * Returns positive integer value. If input cannot be parsed as an integer, return -1
+     */
+    public static int getPosInt(String prompt) {
+        String text = getInput(prompt);
+        try {
+            return Math.abs(Integer.parseInt(text));
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
 }

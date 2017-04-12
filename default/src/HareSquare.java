@@ -41,47 +41,47 @@ public class HareSquare extends Square {
     public void onLandOn(Player player) {
         //player is told what square they have landed on.
         //player picks top card from deck of Hare Cards and completes task on card.
-        System.out.println("You have landed on a Hare Square. Please pick up a Hare card");
-        //System.out.println( getCardText(currentCard) );
+        GameController.println("You have landed on a Hare Square. Please pick up a Hare card");
+        //GameController.println( getCardText(currentCard) );
         switch (deck[currentCard]) {
         //  switch(0) {
             case 0:
-                System.out.println("If there are more players behind you than in front of you, miss a turn. If not, play again. If equal, of course play again.");
+                GameController.println("If there are more players behind you than in front of you, miss a turn. If not, play again. If equal, of course play again.");
                 if ( player.getRacePosition() < player.getBoard().noOfPlayers() / 2 ) {
                     player.flipFaceDown();
-                    System.out.println("You will skip your next turn");
+                    GameController.println("You will skip your next turn");
                 } else {
                     player.takeAnotherTurn();
-                    System.out.println("Take an extra turn");
+                    GameController.println("Take an extra turn");
                 }
                 break;
             case 1:
-                System.out.println("Restore your carrot holding to exactly 65. If you have more than 65, pay extras to the carrot patch; if fewer, draw extras from the carrot patch.");
+                GameController.println("Restore your carrot holding to exactly 65. If you have more than 65, pay extras to the carrot patch; if fewer, draw extras from the carrot patch.");
                 player.resetCarrots();
                 break;
             case 2:
-                System.out.println("Free Ride! Your last turn costs nothing; retrieve the carrots you paid to reach this square.");
+                GameController.println("Free Ride! Your last turn costs nothing; retrieve the carrots you paid to reach this square.");
                 player.addCarrots(player.getCarrotsSpent());
                 break;
             case 3:
-                System.out.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
+                GameController.println("Draw 10 carrots for each lettuce you still hold. If you have none left, miss a turn.\n");
                 if (player.getLettuce() == 0) {
-                    System.out.println("You will skip your next go");
+                    GameController.println("You will skip your next go");
                     player.flipFaceDown();
                 }
                 else {
                     player.addCarrots(player.getLettuce() * 10);
-                    System.out.println(player.getLettuce() * 10 + " carrots were added to your stock.");
+                    GameController.println(player.getLettuce() * 10 + " carrots were added to your stock.");
                 }
                 break;
             case 4:
-                System.out.println("Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.");
-                System.out.println(">> You have " + player.getCarrots() + " carrots left <<");//just added signs on the end
+                GameController.println("Show us your carrots! Count your carrot cards face up to the table so that everyone will know how many you have left.");
+                GameController.println(">> You have " + player.getCarrots() + " carrots left <<");//just added signs on the end
                 break;
             case 5:
-                System.out.println("** Give 10 carrots to each player lying behind you in the race (if any) **");
-                System.out.println("** If you haven't enough carrots, give them five each; if still not possible, one each **");
-                System.out.println("** A player who doesn't want extra carrots may discard them to the 'carrot patch' **");
+                GameController.println("** Give 10 carrots to each player lying behind you in the race (if any) **");
+                GameController.println("** If you haven't enough carrots, give them five each; if still not possible, one each **");
+                GameController.println("** A player who doesn't want extra carrots may discard them to the 'carrot patch' **");
 
                 int position = player.getBoardPosition();// gets player position on board
                 int howManyCarrotsIHave = player.getCarrots();// returns how many carrots the player has
@@ -115,11 +115,11 @@ public class HareSquare extends Square {
                 }
                 break;
             case 6:
-                System.out.println("Lose half your carrots! If an odd number, keep the odd one.");
+                GameController.println("Lose half your carrots! If an odd number, keep the odd one.");
                 player.takeCarrots((int)Math.floor(player.getCarrots()/2)); //take away half the carrots rounded down.
                 break;
             case 7:
-                System.out.println("Shuffle the hare cards and receive from each player 1 carrot for doing so. Do not replace this card at the bottom of the pack but include it in the shuffle.");
+                GameController.println("Shuffle the hare cards and receive from each player 1 carrot for doing so. Do not replace this card at the bottom of the pack but include it in the shuffle.");
                 shuffle();
                 //for each currentPlayer within the list of players, if that player is not player(whose turn it is), take 1 carrot from them and add it to player(whose turn it is)
                 for(Player currentPlayer : player.getBoard().getPlayers()) {
@@ -130,7 +130,7 @@ public class HareSquare extends Square {
                 }
             break;
             default:
-                System.err.println("Something has gone wrong!!");
+                GameController.printlnErr("Something has gone wrong!!");
             break;
         }
     currentCard++;

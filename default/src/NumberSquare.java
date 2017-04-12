@@ -22,8 +22,8 @@ public class NumberSquare extends Square {
         for (int i=0; i<numbers.length; i++) {
             if (racePosition == numbers[i]) {
                 player.addCarrots(racePosition * 10);
-                System.out.println(player.getName() + " gained " + (racePosition * 10) + " carrots for being in position " + racePosition);
-                System.out.println("You now have a total of " + player.getCarrots() + " carrots.");
+                GameController.println(player.getName() + " gained " + (racePosition * 10) + " carrots for being in position " + racePosition);
+                GameController.println("You now have a total of " + player.getCarrots() + " carrots.");
                 return;
             }
         }

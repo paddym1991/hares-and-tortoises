@@ -34,7 +34,7 @@ public class LettuceSquare extends Square {
             int carrotsEarned = 10 * player.getRacePosition();
             player.addCarrots(carrotsEarned);
             // Preferably hand this off to a GameController; it decides how messages are actually displayed
-            System.out.println(player.getName() + " spent their turn chewing on lettuce and earned " + carrotsEarned + " carrots.");
+            GameController.println(player.getName() + " spent their turn chewing on lettuce and earned " + carrotsEarned + " carrots.");
         }
 
         //If the player isn't face-down, do nothing; proceed as a regular turn
