@@ -113,16 +113,6 @@ public class Player {
         //Get position in race relative to other players (1st, 2nd, etc.)
 
     }
-    public String getFormattedRacePosition() {
-        String position = getRacePosition() + "";
-        char endDigit = position.charAt(position.length() - 1);
-        switch (endDigit) {
-            case '1': return position + "st";
-            case '2': return position + "nd";
-            case '3': return position + "rd";
-            default: return position + "th";
-        }
-    }
 
     public void endTurn() {
         //TODO: Called whenever an effect would end the player's turn without allowing them to move
