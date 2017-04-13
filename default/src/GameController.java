@@ -28,16 +28,20 @@ public class GameController {
             player = board.getPlayer(currentPlayer);
 
             if (!player.atEnd()) {
-                //int boardPosition = player.getBoardPosition();
-                println("------------------------------------");
+                //println("------------------------------------");
+                println("========= " + player.getName() + "'s Turn =========");
+                if (player.noValidMoves()) {
+                    println("(No valid moves; returning to start. Carrots have been reset to 65.)");
+                    player.resetCarrots();
+                    player.returnToStart();
+                }
                 println(
-                        board.getPlayerName(currentPlayer) + " position: "
-                                + player.getFormattedBoardPosition()
+                        " Position: " + player.getFormattedBoardPosition()
                                 + " (" + formatPosition(player.getRacePosition())
-                                + ")\nCarrots: " + player.getCarrots()
+                                + "), Carrots: " + player.getCarrots()
                                 + ", Lettuce: " + player.getLettuce()
                 );
-                println("------------------------------------");
+                println("-----------------------------------");
                 player.resetTurnStatus();
 
                 player.getSquare().onTurnStart(player);
@@ -63,7 +67,7 @@ public class GameController {
                             println("Enter number of squares to move: ");
                         }
 
-                        String choice = input.nextLine();
+                        String choice = getInput("> ");
                         if (tortoiseAvailable && choice.trim().toUpperCase().equals("T")) {
                             player.backToTortoise();
                             retry = false;
@@ -130,19 +134,19 @@ public class GameController {
                 currentPlayer++;
                 if (currentPlayer == board.noOfPlayers()) currentPlayer = 0;
                 println("");
-               // clearScreen();
+               //clearScreen();
             }
         }
         println("Game Over");
         println("");
     }
 
-    /*
+/*
     private void clearScreen() {
         System.out.print("\u001b[2J" + "\u001b[H");
         System.out.flush();
     }
-    */
+*/
 
 
     public static void println(String text) {
@@ -151,6 +155,7 @@ public class GameController {
     public static void printlnErr(String text) {
         System.err.println(text);
     }
+
 
     public static String getInput(String prompt) {
         System.out.print(prompt);
