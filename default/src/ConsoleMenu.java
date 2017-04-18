@@ -1,10 +1,25 @@
-/**
- * The Welcome page to the console game
- * Has a selection of options of the game
- *
- */
-
 import java.util.Scanner;
+
+/**
+ * The ConsoleMenu class is a menu driven application where the user can choose
+ * a selection to learn about the rules and strategies of the game.
+ * ============================================================================
+ * It has a welcome screen which prompts you to Press ENTER to continue to
+ * Menu Selection which have instructions as follows:
+ * --Introduction
+ * --Quick Reference Guide
+ * --Getting Ready
+ * --Race Card
+ * --Object of the Game
+ * --How to Move
+ * --Getting Home
+ * --Can't Move
+ * --Lets Play the Game
+ * --Exit
+ *
+ * @author: Gary Fleming 17/04/2017
+ * @version:
+ */
 
 public class ConsoleMenu{
 
@@ -14,6 +29,9 @@ public class ConsoleMenu{
         new ConsoleMenu();
     }
 
+    /**
+     * Welcome page for the game
+     */
     public ConsoleMenu(){
         GameController.println("**************************************");
         GameController.println("                WELCOME");
@@ -26,6 +44,11 @@ public class ConsoleMenu{
         runMenu();
     }
 
+    /**
+     * Menu Selection page for the game
+     *
+     * @return Asks player to input a number from selection
+     */
     public int mainMenu(){
         GameController.println("**************************************");
         GameController.println("*********** MENU SELECTION ***********");
@@ -45,6 +68,9 @@ public class ConsoleMenu{
         return GameController.getPosInt("> ");
     }
 
+    /**
+     * runMenu() - This method displays the menu and processes the user's menu choice.
+     */
     public void runMenu()
     {
         int option = mainMenu();
@@ -82,11 +108,12 @@ public class ConsoleMenu{
                 default:
                     GameController.printlnErr(">>>>>>>>>>> INVALID OPTION <<<<<<<<<<<\n");
                     GameController.println("           Please try again\n");
-                    break;
+
             }
             GameController.println("======================================");
             GameController.println("Press \"Enter\" to Return to Main Menu");
-            GameController.println("======================================\n\n");
+            GameController.println("======================================\n");
+            GameController.getPosInt("");
             option = mainMenu();
         }
         GameController.println("\n**************************************");

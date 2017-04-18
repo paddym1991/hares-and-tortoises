@@ -1,21 +1,17 @@
 /**
- * When you start your turn on a Carrot square, choose one of three options:
- * - End your turn without moving, gain 10 carrots
- * - End your turn without moving, pay 10 carrots
- * - Take your turn (and movement) as normal
- */
-
-/**
- * <pre>
  * This class handles the Carrot Square on the game board.
+ * ======================================================
  * The Rules with the Carrot Square are :
  * -- Nothing happens immediately when you land on the square
- * -- On the next turn you may stay where you are and earn 10 carrots
- * -- Once you are on a Carrot Square you may miss as many turns as you like earning 10 Carrots each turn.
+ * -- On the next turn you may >> Stay where you are and earn 10 carrots
+ *                             >> Stay where you are and discard 10 carrots or
+ *                             >> Take your turn as normal.
+ * ===========================================================================
+ * -- Once you are on a Carrot Square you may miss as many turns as you like as well whilst:
+ * >> Collecting 10 carrots every time you stay or..
+ * >> Discarding 10 carrots every time you stay.
  *
- * </pre>
- *
- * @author
+ * @author: Gary Fleming
  * @version
  */
 
@@ -35,7 +31,7 @@ public class CarrotSquare extends Square {
             GameController.println("3) Or take your turn as normal?");
 
             int num;
-            num = GameController.getPosInt("> ");//returns next int by use
+            num = GameController.getPosInt("> ");//returns next int by user
             switch (num) {
                 case 1:
                     invalidInput = false;
