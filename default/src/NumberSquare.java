@@ -27,6 +27,14 @@ public class NumberSquare extends Square {
         this.numbers = numbers;
     }
 
+    @Override
+    public void onLandOn(Player player) {
+        String output = numbers[0] + "";
+        for (int i=1; i<numbers.length; i++)
+            output += ", " + numbers[i];
+        GameController.println("You have landed on a [" + output + "] Square");
+    }
+
     /**
      * Overrides from Square Class....When a players turn to start resume as normal
      *

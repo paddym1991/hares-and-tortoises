@@ -221,22 +221,38 @@ public class Player {
         faceDown = true;
     } //House rule:    If you have to skip your next go, flip your token face down to keep track of it. On your next go, flip it up and skip your go.
 
+    /**
+     *
+     */
     public void flipFaceUp() {
         faceDown = false;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean hasAnotherTurn() {
         return anotherTurn;
     }
 
+    /**
+     *
+     */
     public void noMoreTurns() {
         anotherTurn = false;
     }
 
+    /**
+     *
+     */
     public void takeAnotherTurn() {
         anotherTurn = true;
     }
 
+    /**
+     *
+     */
     public void backToTortoise() {
         int newPosition = board.getClosestTortoise(boardPosition);
         addCarrots(10 * (boardPosition - newPosition));
@@ -260,6 +276,9 @@ public class Player {
         return true;
     }
 
+    /**
+     *
+     */
     public void returnToStart() {
         boardPosition = 0;
     }

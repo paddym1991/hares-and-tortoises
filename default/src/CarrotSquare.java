@@ -18,16 +18,19 @@
 
 
 public class CarrotSquare extends Square {
+    @Override
+    public void onLandOn(Player player) {
+        GameController.println("You have landed on a Carrot Square");
+    }
 
     public void onTurnStart(Player player) {
-        GameController.println("      You are on a Carrot Square");
-        GameController.println("**************************************");
+        GameController.println("You are on a Carrot Square");
 
         boolean invalidInput = true;
         while (invalidInput) {
             GameController.println("==========Enter your choice===========");
             GameController.println("1) Stay where you are and gain 10 carrots?");
-            GameController.println("2) Stay where you are an discard 10 carrots?");
+            GameController.println("2) Stay where you are and discard 10 carrots?");
             GameController.println("3) Or take your turn as normal?");
 
             int num;

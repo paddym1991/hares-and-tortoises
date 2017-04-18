@@ -113,7 +113,7 @@ public class ConsoleMenu{
             GameController.println("======================================");
             GameController.println("Press \"Enter\" to Return to Main Menu");
             GameController.println("======================================\n");
-            GameController.getPosInt("");
+            GameController.getInput("");
             option = mainMenu();
         }
         GameController.println("\n**************************************");

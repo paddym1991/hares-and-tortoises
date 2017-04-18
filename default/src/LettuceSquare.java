@@ -36,6 +36,7 @@ public class LettuceSquare extends Square {
 
     @Override
     public void onLandOn(Player player) {
+        GameController.println("You have landed on a Lettuce Square");
         player.flipFaceDown();
     }
 
