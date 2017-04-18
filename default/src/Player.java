@@ -255,9 +255,9 @@ public class Player {
      * Checks for each square the player can move to, including Tortoise sqauare. See if all are occupied.
      */
     public boolean noValidMoves() {
-        int i, incr;
-        for (i = incr = 1; (i+incr < carrots) && (getBoardPosition()+incr < board.length()); i += ++incr) { //i = 1, 3, 6, 10, etc.; incr = 1, 2, 3, 4, etc.
-            if (board.getSquare(getBoardPosition() + incr).canLandOn(this)) {
+        int total, i;
+        for (total = i = 1; (total+i < carrots) && (getBoardPosition()+i < board.length()); total += ++i) { //total = 1, 3, 6, 10, etc.; i = 1, 2, 3, 4, etc.
+            if (board.getSquare(getBoardPosition() + i).canLandOn(this)) {
                 return false;
             }
         }
