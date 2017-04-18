@@ -19,10 +19,11 @@
 
 public class CarrotSquare extends Square {
     @Override
-    public void onLandOn(Player player) {
-        GameController.println("You have landed on a Carrot Square");
+    public String toString() {
+        return "Carrot";
     }
 
+    @Override
     public void onTurnStart(Player player) {
         GameController.println("You are on a Carrot Square");
 

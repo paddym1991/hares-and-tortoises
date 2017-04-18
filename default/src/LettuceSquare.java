@@ -12,6 +12,11 @@
  */
 public class LettuceSquare extends Square {
 
+    @Override
+    public String toString() {
+        return "Lettuce";
+    }
+
     /**
      * Overrides from Square Class... When a player can land on a square or not
      *
@@ -36,7 +41,7 @@ public class LettuceSquare extends Square {
 
     @Override
     public void onLandOn(Player player) {
-        GameController.println("You have landed on a Lettuce Square");
+        super.onLandOn(player);
         player.flipFaceDown();
     }
 

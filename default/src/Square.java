@@ -12,6 +12,8 @@
 
 public class Square {
 
+    private String squareType = "Blank";
+
     /**
      * The default constructor.
      *
@@ -28,7 +30,7 @@ public class Square {
      * @return  Returns if the square is occupied by another player
      */
     public boolean canLandOn(Player player) {
-        return isOccupied(player);
+        return !isOccupied(player);
     }
 
     /**
@@ -41,10 +43,10 @@ public class Square {
      */
     public boolean isOccupied(Player player) {
         Board board = player.getBoard();
-        for (Player p : player.getBoard().getPlayers()) {
-            if (board.getSquare(p.getBoardPosition()) == this) return false;
+        for (Player p : board.getPlayers()) {
+            if (board.getSquare(p.getBoardPosition()) == this) return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -54,7 +56,7 @@ public class Square {
      *              Player function when landing on this square
      */
     public void onLandOn(Player player) {
-        //Do nothing
+        GameController.println("You have landed on a " + this.toString() + " Square");
     }
 
     /**
@@ -65,5 +67,9 @@ public class Square {
      */
     public void onTurnStart(Player player) {
         //Do nothing
+    }
+
+    public String toString() {
+        return squareType;
     }
 }

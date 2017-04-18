@@ -41,6 +41,11 @@ public class HareSquare extends Square {
     Next card in Hare deck will then be chosen and instructions will be carried out.
      */
 
+    @Override
+    public String toString() {
+        return "Hare";
+    }
+
     /**
      * Overrides the Square Class... When a player lands on a Hare Square
      *

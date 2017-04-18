@@ -64,29 +64,29 @@ public class GameController {
                 if (player.hasTurnEnded()) {
                     println(player.getName() + " skips a turn");
                 } else {
-                    int lastTortoise = board.getClosestTortoise(player.getBoardPosition());
-                    boolean tortoiseAvailable = lastTortoise > -1 && board.getSquare(lastTortoise).isOccupied(player);
-
                     int numSquares = 0;
                     boolean retry = false;
 
                     do {
-                        if (tortoiseAvailable) {
-                            println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + lastTortoise + "): ");
+                        if (player.tortoiseAvailable()) {
+                            println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + player.lastTortoise() + "), or 'M' to show possible moves: ");
                         } else {
-                            println("Enter number of squares to move: ");
+                            println("Enter number of squares to move, or enter 'M' to show possible moves: ");
                         }
 
                         String choice = getInput("> ");
-                        if (tortoiseAvailable && choice.trim().toUpperCase().equals("T")) {
+                        if (player.tortoiseAvailable() && choice.trim().equalsIgnoreCase("T")) {
                             player.backToTortoise();
                             retry = false;
+                        } else if (choice.trim().equalsIgnoreCase("M")) {
+                            player.printValidMoves();
+                            retry = true;
 
                             // CHEAT CODES - Set number of carrots to 5 with "CHEAT CARROTS 5"; comment out when unneeded
-                        } else if (choice.toUpperCase().startsWith("CHEAT CARROTS")) {player.addCarrots(Integer.parseInt(choice.split(" ")[2]) - player.getCarrots()); retry = true;
-                        } else if (choice.equalsIgnoreCase("CHEAT LETTUCE")) {player.takeLettuce(); retry = true;
-                        } else if (choice.equalsIgnoreCase("CHEAT ALL LETTUCE")) {player.takeLettuce(); player.takeLettuce(); player.takeLettuce(); retry = true;
-                        } else if (choice.toUpperCase().startsWith("CHEAT JUMP")) {player.movePlayer(Integer.parseInt(choice.split(" ")[2]) - player.getBoardPosition()); retry = true;
+                        //} else if (choice.toUpperCase().startsWith("CHEAT CARROTS")) {player.addCarrots(Integer.parseInt(choice.split(" ")[2]) - player.getCarrots()); retry = true;
+                        //} else if (choice.equalsIgnoreCase("CHEAT LETTUCE")) {player.takeLettuce(); retry = true;
+                        //} else if (choice.equalsIgnoreCase("CHEAT ALL LETTUCE")) {player.takeLettuce(); player.takeLettuce(); player.takeLettuce(); retry = true;
+                        //} else if (choice.toUpperCase().startsWith("CHEAT JUMP")) {player.movePlayer(Integer.parseInt(choice.split(" ")[2]) - player.getBoardPosition()); retry = true;
 
                         } else {
                             try {
