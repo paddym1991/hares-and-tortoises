@@ -177,24 +177,16 @@ public class Player {
     }
 
     /**
-     *
-     * @return
+     * Get position in race relative to other players (1st, 2nd, etc.)
      */
     public int getRacePosition() {
         return board.getRacePosition(this);
-
-        //Get position in race relative to other players (1st, 2nd, etc.)
-
-        /**
-         *
-          */
     }
 
     /**
-     *
+     * Called whenever an effect would end the player's turn without allowing them to move
      */
     public void endTurn() {
-        //TODO: Called whenever an effect would end the player's turn without allowing them to move
         turnEnded = true;
     }
 
@@ -229,22 +221,38 @@ public class Player {
         faceDown = true;
     } //House rule:    If you have to skip your next go, flip your token face down to keep track of it. On your next go, flip it up and skip your go.
 
+    /**
+     *
+     */
     public void flipFaceUp() {
         faceDown = false;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean hasAnotherTurn() {
         return anotherTurn;
     }
 
+    /**
+     *
+     */
     public void noMoreTurns() {
         anotherTurn = false;
     }
 
+    /**
+     *
+     */
     public void takeAnotherTurn() {
         anotherTurn = true;
     }
 
+    /**
+     *
+     */
     public void backToTortoise() {
         int newPosition = board.getClosestTortoise(boardPosition);
         addCarrots(10 * (boardPosition - newPosition));
@@ -255,19 +263,22 @@ public class Player {
      * Checks for each square the player can move to, including Tortoise sqauare. See if all are occupied.
      */
     public boolean noValidMoves() {
-        int i, incr;
-        for (i = incr = 1; (i+incr < carrots) && (getBoardPosition()+incr < board.length()); i += ++incr) { //i = 1, 3, 6, 10, etc.; incr = 1, 2, 3, 4, etc.
-            if (board.getSquare(getBoardPosition() + incr).canLandOn(this)) {
+        int total, i;
+        for (total = i = 1; (total+i < carrots) && (getBoardPosition()+i < board.length()); total += ++i) { //total = 1, 3, 6, 10, etc.; i = 1, 2, 3, 4, etc.
+            if (board.getSquare(getBoardPosition() + i).canLandOn(this)) {
                 return false;
             }
         }
         if (board.getClosestTortoise(getBoardPosition()) > -1
-                && board.getSquare(board.getClosestTortoise(getBoardPosition())).isOccupied(this)) {
+                && !board.getSquare(board.getClosestTortoise(getBoardPosition())).isOccupied(this)) {
             return false;
         }
         return true;
     }
 
+    /**
+     *
+     */
     public void returnToStart() {
         boardPosition = 0;
     }

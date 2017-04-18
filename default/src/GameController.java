@@ -1,8 +1,16 @@
 import java.util.Scanner;
 
 /**
+ * The GameController Class is where the game start takes place for the players
+ * It is here where the user is asked to input the number of players that wish to play
  *
-
+ * It shows >> the players name
+ *          >> the players position
+ *          >> the number square they are on
+ *          >> the amount of carrots they hold
+ *          >> the amount of lettuce cards they hold
+ * ====================================================================================
+ *
  *
  */
 public class GameController {
@@ -20,7 +28,8 @@ public class GameController {
 
         int numPlayers = 0;
         while (numPlayers < 2 || numPlayers > 6)
-            numPlayers = getPosInt("Enter number of players (2-6): ");
+            numPlayers = getPosInt("\nEnter number of players (2-6): ");
+        println("");
         board = new Board(numPlayers);
 
         int currentPlayer = 0;
@@ -28,20 +37,21 @@ public class GameController {
             player = board.getPlayer(currentPlayer);
 
             if (!player.atEnd()) {
-                //println("------------------------------------");
-                println("========= " + player.getName() + "'s Turn =========");
+                println("-------------------------------------");
+                println("========== " + player.getName() + "'s Turn ==========");
                 if (player.noValidMoves()) {
-                    println("(No valid moves; returning to start. Carrots have been reset to 65.)");
+                    println("*** No valid moves-----returning to start");
+                    println("        Carrots have been reset to 65.");
                     player.resetCarrots();
                     player.returnToStart();
                 }
                 println(
-                        " Position: " + player.getFormattedBoardPosition()
+                        "Position: " + player.getFormattedBoardPosition()
                                 + " (" + formatPosition(player.getRacePosition())
-                                + "), Carrots: " + player.getCarrots()
+                                + ")\nCarrots: " + player.getCarrots()
                                 + ", Lettuce: " + player.getLettuce()
                 );
-                println("-----------------------------------");
+                println("-------------------------------------");
                 player.resetTurnStatus();
 
                 player.getSquare().onTurnStart(player);
@@ -81,7 +91,7 @@ public class GameController {
                         } else {
                             try {
                                 numSquares = Integer.parseInt(choice);
-                                if (numSquares >= 0) {
+                                if (numSquares > 0) {
                                     if ((player.getBoardPosition() + numSquares) < board.length()) {
                                         //Move the player
                                         if (player.getSquareFree(numSquares)) {
@@ -148,15 +158,28 @@ public class GameController {
     }
 */
 
-
+    /**
+     *
+     * @param text
+     */
     public static void println(String text) {
         System.out.println(text);
     }
+
+    /**
+     *
+     * @param text
+     */
     public static void printlnErr(String text) {
         System.err.println(text);
     }
 
 
+    /**
+     *
+     * @param prompt
+     * @return
+     */
     public static String getInput(String prompt) {
         System.out.print(prompt);
         return input.nextLine();
@@ -174,6 +197,11 @@ public class GameController {
         }
     }
 
+    /**
+     *
+     * @param number
+     * @return
+     */
     public String formatPosition(int number) {
         String position = number + "";
         char endDigit = position.charAt(position.length() - 1);

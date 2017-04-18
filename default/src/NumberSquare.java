@@ -8,14 +8,41 @@
  * - 2
  * - 3
  * - 4
+ *
+ * @author:
+ * @version:
  */
+
+
 public class NumberSquare extends Square {
     public int[] numbers;
 
+    /**
+     *
+     * @param numbers
+     *              Numbers indicates whether the number is in the current numbers or not
+     *
+     */
     public NumberSquare(int... numbers) {
         this.numbers = numbers;
     }
 
+    @Override
+    public void onLandOn(Player player) {
+        String output = numbers[0] + "";
+        for (int i=1; i<numbers.length; i++)
+            output += ", " + numbers[i];
+        GameController.println("You have landed on a [" + output + "] Square");
+    }
+
+    /**
+     * Overrides from Square Class....When a players turn to start resume as normal
+     *
+     * @param player
+     *              Gets players race position number.
+     *              If position is equal to the number on square then that number times * 10 carrots are given to the player
+     *              Prints out the players total carrots after calculation
+     */
     @Override
     public void onTurnStart(Player player) {
         int racePosition = player.getRacePosition();
@@ -23,7 +50,7 @@ public class NumberSquare extends Square {
             if (racePosition == numbers[i]) {
                 player.addCarrots(racePosition * 10);
                 GameController.println(player.getName() + " gained " + (racePosition * 10) + " carrots for being in position " + racePosition);
-                GameController.println("You now have a total of " + player.getCarrots() + " carrots.");
+                GameController.println(">> You now have a total of " + player.getCarrots() + " carrots <<\n");
                 return;
             }
         }

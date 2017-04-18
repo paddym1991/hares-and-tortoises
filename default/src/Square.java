@@ -1,8 +1,12 @@
 /**
- * This contains the habits of the Square Class
+ * This contains the Function of the Square Class
+ * The methods function of the squares are:
+ * -- Can a player land on that square
+ * -- Is that square occupied
+ * -- Return nothing when landed on
+ * -- Return nothing when turn start
  *
- *-
- * @author
+ * @author Gary Fleming 17/04/2017
  * @version
  */
 
@@ -17,18 +21,23 @@ public class Square {
     }
 
     /**
+     * When a player cannot land on a square or not
      *
      * @param player
-     * @return
+     *              Player function when a player cannot land on square
+     * @return  Returns if the square is occupied by another player
      */
     public boolean canLandOn(Player player) {
         return isOccupied(player);
     }
 
     /**
+     * When a square a player picks is occupied
      *
      * @param player
-     * @return
+     *              Player function when square is occupied
+     * @return  Returns if square is occupied by another player from the board,
+     *
      */
     public boolean isOccupied(Player player) {
         Board board = player.getBoard();
@@ -39,16 +48,20 @@ public class Square {
     }
 
     /**
+     * When a player lands on a square
      *
      * @param player
+     *              Player function when landing on this square
      */
     public void onLandOn(Player player) {
         //Do nothing
     }
 
     /**
+     * When a players turn to start resume as normal
      *
      * @param player
+     *              Player function when turn to start
      */
     public void onTurnStart(Player player) {
         //Do nothing

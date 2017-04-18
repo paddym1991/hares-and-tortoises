@@ -1,12 +1,16 @@
 /**
- * The Introduction pages to the game
- * Quick Reference Guide
- * Getting Ready
- * Race Card
- * Objectives of the Game
- * How to Move
- * Getting Home
- * Can't Move
+ * The Introduction pages to the Hare & Tortoise Game
+ * ==================================================
+ * --Quick Reference Guide
+ * --Getting Ready
+ * --Race Card
+ * --Objectives of the Game
+ * --How to Move
+ * --Getting Home
+ * --Can't Move
+ *
+ * @author: Gary Fleming 17/04/2017
+ * @version:
  */
 
 public class Introduction {
