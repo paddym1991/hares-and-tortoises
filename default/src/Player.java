@@ -177,24 +177,16 @@ public class Player {
     }
 
     /**
-     *
-     * @return
+     * Get position in race relative to other players (1st, 2nd, etc.)
      */
     public int getRacePosition() {
         return board.getRacePosition(this);
-
-        //Get position in race relative to other players (1st, 2nd, etc.)
-
-        /**
-         *
-          */
     }
 
     /**
-     *
+     * Called whenever an effect would end the player's turn without allowing them to move
      */
     public void endTurn() {
-        //TODO: Called whenever an effect would end the player's turn without allowing them to move
         turnEnded = true;
     }
 
@@ -262,7 +254,7 @@ public class Player {
             }
         }
         if (board.getClosestTortoise(getBoardPosition()) > -1
-                && board.getSquare(board.getClosestTortoise(getBoardPosition())).isOccupied(this)) {
+                && !board.getSquare(board.getClosestTortoise(getBoardPosition())).isOccupied(this)) {
             return false;
         }
         return true;
