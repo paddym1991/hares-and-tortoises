@@ -10,6 +10,15 @@
  */
 
 public class EndSquare extends Square {
+    @Override
+    public String toString() {
+        return "Goal";
+    }
+
+    @Override
+    public void onLandOn(Player player) {
+        GameController.println("You have crossed the finish line!");
+    }
 
     /**
      * Overrides the Square Class... Whether a player can land on the end square or not

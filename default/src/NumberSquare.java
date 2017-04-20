@@ -28,11 +28,11 @@ public class NumberSquare extends Square {
     }
 
     @Override
-    public void onLandOn(Player player) {
-        String output = numbers[0] + "";
+    public String toString() {
+        String output = "[" + numbers[0];
         for (int i=1; i<numbers.length; i++)
             output += ", " + numbers[i];
-        GameController.println("You have landed on a [" + output + "] Square");
+        return output + "]";
     }
 
     /**

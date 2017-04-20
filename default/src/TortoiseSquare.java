@@ -9,6 +9,11 @@
 
 public class TortoiseSquare extends Square {
 
+    @Override
+    public String toString() {
+        return "Tortoise";
+    }
+
     /**
      * Overrides the Square Class... When a player can land on the square
      * @param player

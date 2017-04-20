@@ -250,13 +250,18 @@ public class Player {
         anotherTurn = true;
     }
 
+    public int lastTortoise() {
+        return board.getClosestTortoise(getBoardPosition());
+    }
+    public boolean tortoiseAvailable() {
+        return lastTortoise() > -1 && !board.getSquare(lastTortoise()).isOccupied(this);
+    }
     /**
      *
      */
     public void backToTortoise() {
-        int newPosition = board.getClosestTortoise(boardPosition);
-        addCarrots(10 * (boardPosition - newPosition));
-        boardPosition = newPosition;
+        addCarrots(10 * (boardPosition - lastTortoise()));
+        boardPosition = lastTortoise();
     }
 
     /**
@@ -269,11 +274,19 @@ public class Player {
                 return false;
             }
         }
-        if (board.getClosestTortoise(getBoardPosition()) > -1
-                && !board.getSquare(board.getClosestTortoise(getBoardPosition())).isOccupied(this)) {
-            return false;
+        return !tortoiseAvailable();
+    }
+
+    public void printValidMoves() {
+        int total, i;
+        Square square;
+        if (tortoiseAvailable())
+            GameController.println("T: Tortoise @ " + lastTortoise() + " (gain +" + 10*(boardPosition - lastTortoise()) + " carrots)");
+        for (total = i = 1; (total <= carrots) && (getBoardPosition() + i < board.length()); total += ++i) { //total = 1, 3, 6, 10, etc.; i = 1, 2, 3, 4, etc.
+            square = board.getSquare(getBoardPosition() + i);
+            if (square.canLandOn(this))
+                GameController.println(i + ": " + square.toString() + " (-" + total + " carrot[s])");
         }
-        return true;
     }
 
     /**
@@ -282,6 +295,7 @@ public class Player {
     public void returnToStart() {
         boardPosition = 0;
     }
+
 }
 
 
