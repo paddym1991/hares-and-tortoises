@@ -32,6 +32,11 @@ public class GameController {
         println("");
         board = new Board(numPlayers);
 
+        /**
+         *  Asks the user to enter the number of players to play the game , this will be between 2 & 6
+         *
+         *  While The number of players is greater than 2 or less than 6 , create a new board
+         */
         int currentPlayer = 0;
         while ( board.noOfPlayersFinished() < (board.noOfPlayers()-1) ) {
             player = board.getPlayer(currentPlayer);
@@ -55,6 +60,14 @@ public class GameController {
                 player.resetTurnStatus();
 
                 player.getSquare().onTurnStart(player);
+
+                /**
+                 * If the player is not at the end then print out the Players Name + Turn
+                 * If the player has no valid moves
+                 * Return the player to the starting square
+                 * update his/her carrots balance to 65
+                 * Print Players position and carrots and lettuce balance
+                 */
 
                 if (player.isFaceDown()) { //House rule: All "skip next turn" effects flip the player face-down for easier tracking
                     player.flipFaceUp();
