@@ -30,7 +30,7 @@ public class Square {
     }
 
     /**
-     * @param player Reaction when asking if a square is occupied
+     * @param player Reaction when asking if a Square is occupied
      * @return  Returns true if square is occupied by another player
      */
     public boolean isOccupied(Player player) {
