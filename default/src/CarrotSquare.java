@@ -29,7 +29,9 @@ public class CarrotSquare extends Square {
         while (invalidInput) {
             GameController.println("==========Enter your choice===========");
             GameController.println("1) Stay where you are and gain 10 carrots?");
-            GameController.println("2) Stay where you are and discard 10 carrots?");
+            if (player.getCarrots() >= 10) {
+                GameController.println("2) Stay where you are and discard 10 carrots?");
+            }
             if (!player.noValidMoves()) {
                 GameController.println("3) Or take your turn as normal?");
             }
@@ -43,10 +45,12 @@ public class CarrotSquare extends Square {
                     player.endTurn();
                     break;
                 case 2:
-                    invalidInput = false;
-                    GameController.println("You have chosen to stay and discarded 10 carrots!\n");
-                    player.takeCarrots(10);
-                    player.endTurn();
+                    if(player.getCarrots() >= 10) {
+                        invalidInput = false;
+                        GameController.println("You have chosen to stay and discarded 10 carrots!\n");
+                        player.takeCarrots(10);
+                        player.endTurn();
+                    }
                     break;
                 case 3:
                     if (!player.noValidMoves()) {
