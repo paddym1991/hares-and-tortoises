@@ -30,8 +30,9 @@ public class CarrotSquare extends Square {
             GameController.println("==========Enter your choice===========");
             GameController.println("1) Stay where you are and gain 10 carrots?");
             GameController.println("2) Stay where you are and discard 10 carrots?");
-            GameController.println("3) Or take your turn as normal?");
-
+            if (!player.noValidMoves()) {
+                GameController.println("3) Or take your turn as normal?");
+            }
             int num;
             num = GameController.getPosInt("> ");//returns next int by user
             switch (num) {
@@ -48,8 +49,10 @@ public class CarrotSquare extends Square {
                     player.endTurn();
                     break;
                 case 3:
-                    invalidInput = false;
-                    GameController.println("You have chosen to take your turn as normal!\n");
+                    if (!player.noValidMoves()) {
+                        invalidInput = false;
+                        GameController.println("You have chosen to take your turn as normal!\n");
+                    }
                     break;
                 default:
                     invalidInput = true;

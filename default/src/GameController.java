@@ -44,7 +44,7 @@ public class GameController {
             if (!player.atEnd()) {
                 println("-------------------------------------");
                 println("========== " + player.getName() + "'s Turn ==========");
-                if (player.noValidMoves()) {
+                if (player.noValidMoves() && ((player.getBoardPosition() != 21) && (player.getBoardPosition() != 26) && (player.getBoardPosition() != 33) && (player.getBoardPosition() != 38) && (player.getBoardPosition() != 40) && (player.getBoardPosition() != 49) && (player.getBoardPosition() != 55) && (player.getBoardPosition() != 59) && (player.getBoardPosition() != 61) && (player.getBoardPosition() != 63))) {
                     println("*** No valid moves-----returning to start");
                     println("        Carrots have been reset to 65.");
                     player.resetCarrots();
@@ -96,9 +96,9 @@ public class GameController {
                             retry = true;
 
                             // CHEAT CODES - Set number of carrots to 5 with "CHEAT CARROTS 5"; comment out when unneeded
-                        //} else if (choice.toUpperCase().startsWith("CHEAT CARROTS")) {player.addCarrots(Integer.parseInt(choice.split(" ")[2]) - player.getCarrots()); retry = true;
+                        } else if (choice.toUpperCase().startsWith("CHEAT CARROTS")) {player.addCarrots(Integer.parseInt(choice.split(" ")[2]) - player.getCarrots()); retry = true;
                         //} else if (choice.equalsIgnoreCase("CHEAT LETTUCE")) {player.takeLettuce(); retry = true;
-                        //} else if (choice.equalsIgnoreCase("CHEAT ALL LETTUCE")) {player.takeLettuce(); player.takeLettuce(); player.takeLettuce(); retry = true;
+                        } else if (choice.equalsIgnoreCase("CHEAT ALL LETTUCE")) {player.takeLettuce(); player.takeLettuce(); player.takeLettuce(); retry = true;
                         //} else if (choice.toUpperCase().startsWith("CHEAT JUMP")) {player.movePlayer(Integer.parseInt(choice.split(" ")[2]) - player.getBoardPosition()); retry = true;
 
                         } else {
