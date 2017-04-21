@@ -11,8 +11,8 @@
  * >> Collecting 10 carrots every time you stay or..
  * >> Discarding 10 carrots every time you stay.
  *
- * @author: Gary Fleming
- * @version
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 public class CarrotSquare extends Square {

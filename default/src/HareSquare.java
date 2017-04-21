@@ -29,8 +29,8 @@
  * - Shuffle the hare cards and receive from each player 1 carrot for doing so.
  * - Do not replace this card at the bottom of the pack but include it in the shuffle.
  *
- * @author:
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 public class HareSquare extends Square {
     private static int[] deck = new int[]{0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7};
@@ -44,7 +44,6 @@ public class HareSquare extends Square {
 
     /**
      * Overrides the Square Class... When a player lands on a Hare Square
-     *
      * @param player
      *              Player picks a card from Hare Cards and completes the task on the card
      */

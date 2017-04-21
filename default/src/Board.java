@@ -12,8 +12,8 @@
  *-- List player name by using the String "Player" followed by the index number
  *-- Display the position of the nearest Tortoise Square
  *
- * @author: Gary Fleming 17/04/2017
- * @version
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 import java.util.ArrayList;
@@ -33,9 +33,7 @@ public class Board {
     }
 
     /**
-     * Adding new players to the board.
-     *
-     * @param numPlayers
+     * @param numPlayers Adding new players to the board.
      */
     public Board(int numPlayers) {
         for (int i=0; i<numPlayers; i++) {
@@ -116,10 +114,11 @@ public class Board {
     }
 
     /**
-     * @param index
+     * @param index get the player index
      * @return player index
      */
-    public Player getPlayer(int index) {
+    public Player getPlayer(int index)
+    {
         return players.get(index);
     }
 
@@ -129,14 +128,14 @@ public class Board {
     public List<Player> getPlayers() {return players;}
 
     /**
-     * @param player
+     * @param player player of the Player Class
      * @return Returns a String containing the name of the players
      */
     public String getPlayerName(Player player)
     {return getPlayerName(players.indexOf(player));}
 
     /**
-     * @param index
+     * @param index Print out the player and their index
      * @return String containing the name of the player and its index number
      */
     public String getPlayerName(int index) { //Could be replaced if the players can have custom names
@@ -144,7 +143,7 @@ public class Board {
     }
 
     /**
-     * @param player
+     * @param player player of the Player Class
      * @return players position on the board
      */
     public int getRacePosition(Player player) {
@@ -159,15 +158,15 @@ public class Board {
     }
 
     /**
-     * @param index
-     * @return The square you are on based on the index of it in list
+     * @param index Number index of Square
+     * @return The index of the square the player is on based on from the list
      */
     public Square getSquare(int index) {
         return squares.get(index);
     }
 
     /**
-     * @param square
+     * @param square Square from the square class
      * @return The index of the square
      */
     public int getSquareIndex(Square square) {
@@ -175,7 +174,7 @@ public class Board {
     }
 
     /**
-     * @param position
+     * @param position Number position for being at the end of the board or not
      * @return true if player is at the end
      */
     public boolean atEnd(int position) {
@@ -198,7 +197,7 @@ public class Board {
     }
 
     /**
-     * @param position
+     * @param position Number position to get the closest tortoise square
      * @return The position where the closest tortoise square is
      */
     public int getClosestTortoise(int position) {

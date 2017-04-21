@@ -8,8 +8,8 @@
  *          >> 3rd to finish must have <= 30 carrots etc....
  * It is then and ONLY then can the player land on the EndSquare.
  *
- * @author: Gary Fleming 17/04/2017
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  *
  */
 

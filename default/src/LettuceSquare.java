@@ -7,8 +7,8 @@
  *    (e.g. 5th place gets 50 carrots).
  * -- On the turn after that, you return to moving as normal
  *
- * @author:
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 public class LettuceSquare extends Square {
 
@@ -18,7 +18,7 @@ public class LettuceSquare extends Square {
     }
 
     /**
-     * @param player
+     * @param player If a player can land on square
      * @return If player can land on a regular Square here, AND has 1+ lettuce, return true.
      *          Otherwise return false.
      */
@@ -29,9 +29,8 @@ public class LettuceSquare extends Square {
     }
 
     /**
-     * @param player
-     *              When landing on the square the player has to flip the token face down
-     *              Triggering that the player skips next turn
+     * @param player When landing on the square the player has to flip the token face down
+     *                Triggering that the player skips next turn
      */
     @Override
     public void onLandOn(Player player) {
@@ -40,9 +39,8 @@ public class LettuceSquare extends Square {
     }
 
     /**
-     * @param player
-     *              If player token is face down then discard 1 lettuce card
-     *              Add carrots to your pile by getting your race position and * 10
+     * @param player If player token is face down then discard 1 lettuce card
+     *                 Add carrots to your pile by getting your race position and * 10
      */
     @Override
     public void onTurnStart(Player player) {

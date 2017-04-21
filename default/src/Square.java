@@ -6,8 +6,8 @@
  * -- Return nothing when landed on
  * -- Return nothing when turn start
  *
- * @author Gary Fleming 17/04/2017
- * @version
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 public class Square {
@@ -22,7 +22,7 @@ public class Square {
     }
 
     /**
-     * @param player
+     * @param player Reaction when asking a player if a player can land on square
      * @return  Returns true if the square not occupied
      */
     public boolean canLandOn(Player player) {
@@ -30,7 +30,7 @@ public class Square {
     }
 
     /**
-     * @param player
+     * @param player Reaction when asking if a square is occupied
      * @return  Returns true if square is occupied by another player
      */
     public boolean isOccupied(Player player) {
@@ -42,7 +42,7 @@ public class Square {
     }
 
     /**
-     * @param player
+     * @param player Reation to when a player lands on a square
      */
     public void onLandOn(Player player) {
         GameController.println("You have landed on a " + this.toString() + " Square");

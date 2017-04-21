@@ -9,8 +9,8 @@
  * --Getting Home
  * --Can't Move
  *
- * @author: Gary Fleming 17/04/2017
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 public class Introduction {
@@ -147,77 +147,4 @@ public class Introduction {
 }
 
 
-/** public static void board() {
-        GameController.println("**************************************");
-        GameController.println("**********    Board           ********");
-        GameController.println("**************************************");
-        GameController.println("======================================");
-        GameController.println("|   Position      | Square Name      |");
-        GameController.println("|         1       |     Hare         |");
-        GameController.println("|         2       |     Carrot       |");
-        GameController.println("|         3       |     Hare         |");
-        GameController.println("|         4       |     Number(3)    |");
-        GameController.println("|         5       |     Carrot       |");
-        GameController.println("|         6       |     Hare         |");
-        GameController.println("|         7       |     Number(1,5,6)|");
-        GameController.println("|         8       |     Number(2)    |");
-        GameController.println("|         9       |     Number(4)    |");
-        GameController.println("|         10      |     Lettuce      |");
-        GameController.println("|         11      |     Hare         |");
-        GameController.println("|         12      |     Number(3)    |");
-        GameController.println("|         13      |     Carrot       |");
-        GameController.println("|         14      |     Hare         |");
-        GameController.println("|         15      |     Tortoise     |");
-        GameController.println("|         16      |     Number(1,5,6)|");
-        GameController.println("|         17      |     Number(2)    |");
-        GameController.println("|         18      |     Number(4)    |");
-        GameController.println("|         19      |     Tortoise     |");
-        GameController.println("|         20      |     Number(3)    |");
-        GameController.println("|         21      |     Carrot       |");
-        GameController.println("|         22      |     Lettuce      |");
-        GameController.println("|         23      |     Number(2)    |");
-        GameController.println("|         24      |     Tortoise     |");
-        GameController.println("|         25      |     Hare         |");
-        GameController.println("|         26      |     Carrot       |");
-        GameController.println("|         27      |     Number(4)    |");
-        GameController.println("|         28      |     Number(3)    |");
-        GameController.println("|         29      |     Number(2)    |");
-        GameController.println("|         30      |     Tortoise     |");
-        GameController.println("|         31      |     Hare         |");
-        GameController.println("|         32      |     Number(1,5,6)|");
-        GameController.println("|         33      |     Carrot       |");
-        GameController.println("|         34      |     Hare         |");
-        GameController.println("|         35      |     Number(2)    |");
-        GameController.println("|         36      |     Number(3)    |");
-        GameController.println("|         37      |     Tortoise     |");
-        GameController.println("|         38      |     Carrot       |");
-        GameController.println("|         39      |     Hare         |");
-        GameController.println("|         40      |     Carrot       |");
-        GameController.println("|         41      |     Number(2)    |");
-        GameController.println("|         42      |     Lettuce      |");
-        GameController.println("|         43      |     Tortoise     |");
-        GameController.println("|         44      |     Number(3)    |");
-        GameController.println("|         45      |     Number(4)    |");
-        GameController.println("|         46      |     Hare         |");
-        GameController.println("|         47      |     Number(2)    |");
-        GameController.println("|         48      |     Number(1,5,6)|");
-        GameController.println("|         49      |     Carrot       |");
-        GameController.println("|         50      |     Tortoise     |");
-        GameController.println("|         51      |     Hare         |");
-        GameController.println("|         52      |     Number(3)    |");
-        GameController.println("|         53      |     Number(2)    |");
-        GameController.println("|         54      |     Number(4)    |");
-        GameController.println("|         55      |     Carrot       |");
-        GameController.println("|         56      |     Tortoise     |");
-        GameController.println("|         57      |     Lettuce      |");
-        GameController.println("|         58      |     Hare         |");
-        GameController.println("|         59      |     Carrot       |");
-        GameController.println("|         60      |     Number(1,5,6)|");
-        GameController.println("|         61      |     Carrot       |");
-        GameController.println("|         62      |     Hare         |");
-        GameController.println("|         63      |     Carrot       |");
-        GameController.println("|         64      |     End Square   |");
-        GameController.println("|                                    |");
-        GameController.println("+************************************+");
-    }  */
 

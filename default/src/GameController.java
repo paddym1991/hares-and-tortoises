@@ -13,8 +13,8 @@ import java.util.Scanner;
  * Controls the moves of the player around the board
  * ====================================================================================
  *
- * @author:
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 public class GameController {
 
@@ -172,8 +172,7 @@ public class GameController {
 */
 
     /**
-     * Helper method for System print out on screen
-     * @param text
+     * @param text Helper method for System print out on screen
      *
      */
     public static void println(String text) {
@@ -181,8 +180,7 @@ public class GameController {
     }
 
     /**
-     * Helper method for System print out err on screen
-     * @param text
+     * @param text Helper method for System print out err on screen
      */
     public static void printlnErr(String text) {
         System.err.println(text);
@@ -190,8 +188,7 @@ public class GameController {
 
 
     /**
-     * Helper method for when player is prompted to input value
-     * @param prompt
+     * @param prompt Helper method for when player is prompted to input value
      * @return next line
      */
     public static String getInput(String prompt) {
@@ -200,7 +197,7 @@ public class GameController {
     }
 
     /**
-     * @param prompt
+     * @param prompt Helper method for checking if the value is a positive value
      * @return positive integer value. If input cannot be parsed as an integer, return -1
      */
     public static int getPosInt(String prompt) {
@@ -213,7 +210,8 @@ public class GameController {
     }
 
     /**
-     * @param number
+     * @param number Number format type as a String:
+     *               1st, 2nd, 3rd etc...
      * @return players race position in correct format
      */
     public String formatPosition(int number) {

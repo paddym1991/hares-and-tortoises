@@ -9,8 +9,8 @@
  * - 3
  * - 4
  *
- * @author:
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 
@@ -24,6 +24,9 @@ public class NumberSquare extends Square {
         this.numbers = numbers;
     }
 
+    /**
+     * @return Returns an output of a String + numbers
+     */
     @Override
     public String toString() {
         String output = "[" + numbers[0];
@@ -35,10 +38,9 @@ public class NumberSquare extends Square {
     /**
      * Overrides from Square Class....When a players turn to start resume as normal
      *
-     * @param player
-     *              Gets players race position number.
-     *              If position is equal to the number on square then that number times * 10 carrots are given to the player
-     *              Prints out the players total carrots after calculation
+     * @param player Gets players race position number. If position is equal to the number on square then that number
+     *                 times * 10 carrots are given to the player
+     *                   Prints out the players total carrots after calculation
      */
     @Override
     public void onTurnStart(Player player) {

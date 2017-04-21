@@ -15,8 +15,8 @@
  * --Lets Play the Game
  * --Exit
  *
- * @author: Gary Fleming 17/04/2017
- * @version:
+ * @author: Gary Fleming, Paddy Murphy, Paul Harmon, Cathal Gahan 21/04/2017
+ * @version: 25.0
  */
 
 public class ConsoleMenu{
@@ -42,7 +42,6 @@ public class ConsoleMenu{
 
     /**
      * Menu Selection page for the game
-     *
      * @return Asks player to input a number from selection
      */
     public int mainMenu(){
