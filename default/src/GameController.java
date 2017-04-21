@@ -9,9 +9,12 @@ import java.util.Scanner;
  *          >> the number square they are on
  *          >> the amount of carrots they hold
  *          >> the amount of lettuce cards they hold
+ *
+ * Controls the moves of the player around the board
  * ====================================================================================
  *
- *
+ * @author:
+ * @version:
  */
 public class GameController {
 
@@ -26,17 +29,14 @@ public class GameController {
         Player player;
         HareSquare.shuffle();
 
+        //Gives user the choice to input number of players to play the game
         int numPlayers = 0;
         while (numPlayers < 2 || numPlayers > 6)
             numPlayers = getPosInt("\nEnter number of players (2-6): ");
         println("");
         board = new Board(numPlayers);
 
-        /**
-         *  Asks the user to enter the number of players to play the game , this will be between 2 & 6
-         *
-         *  While The number of players is greater than 2 or less than 6 , create a new board
-         */
+
         int currentPlayer = 0;
         while ( board.noOfPlayersFinished() < (board.noOfPlayers()-1) ) {
             player = board.getPlayer(currentPlayer);
@@ -61,14 +61,13 @@ public class GameController {
 
                 player.getSquare().onTurnStart(player);
 
-                /**
-                 * If the player is not at the end then print out the Players Name + Turn
+
+                 /* If the player is not at the end then print out the Players Name + Turn
                  * If the player has no valid moves
                  * Return the player to the starting square
-                 * update his/her carrots balance to 65
+                 * Update his/her carrots balance to 65
                  * Print Players position and carrots and lettuce balance
                  */
-
                 if (player.isFaceDown()) { //House rule: All "skip next turn" effects flip the player face-down for easier tracking
                     player.flipFaceUp();
                     player.endTurn();
@@ -84,7 +83,8 @@ public class GameController {
                         if (player.tortoiseAvailable()) {
                             println("Enter number of squares to move, or enter 'T' to move back to the last tortoise (Square " + player.lastTortoise() + "), or 'M' to show possible moves: ");
                         } else {
-                            println("Enter number of squares to move, or enter 'M' to show possible moves: ");
+                            println("\nEnter number of squares to move or " +
+                                    "\nPress 'M' to show possible moves: ");
                         }
 
                         String choice = getInput("> ");
@@ -172,15 +172,16 @@ public class GameController {
 */
 
     /**
-     *
+     * Helper method for System print out on screen
      * @param text
+     *
      */
     public static void println(String text) {
         System.out.println(text);
     }
 
     /**
-     *
+     * Helper method for System print out err on screen
      * @param text
      */
     public static void printlnErr(String text) {
@@ -189,9 +190,9 @@ public class GameController {
 
 
     /**
-     *
+     * Helper method for when player is prompted to input value
      * @param prompt
-     * @return
+     * @return next line
      */
     public static String getInput(String prompt) {
         System.out.print(prompt);
@@ -199,7 +200,8 @@ public class GameController {
     }
 
     /**
-     * Returns positive integer value. If input cannot be parsed as an integer, return -1
+     * @param prompt
+     * @return positive integer value. If input cannot be parsed as an integer, return -1
      */
     public static int getPosInt(String prompt) {
         String text = getInput(prompt);
@@ -211,9 +213,8 @@ public class GameController {
     }
 
     /**
-     *
      * @param number
-     * @return
+     * @return players race position in correct format
      */
     public String formatPosition(int number) {
         String position = number + "";

@@ -60,58 +60,6 @@ public class Introduction {
         GameController.println("Throughout play, all carrot payments\n" + "are made into or out of this patch.\n");
     }
 
-    /*
-    public static void raceCard(){
-        GameController.println("**************************************");
-        GameController.println("              RACE CARD");
-        GameController.println("**************************************");
-        GameController.println("Cost of moving: Each square you move\n"
-                + "forward on the board costs you carrots\n"
-                + "as follows in the list below.");
-        GameController.println("=======================================");
-        GameController.println("  Squares Moved       Cost in Carrots  ");
-        GameController.println("=======================================");
-        GameController.println("	1	    	   1");
-        GameController.println("	2		       3");
-        GameController.println("	3		       6");
-        GameController.println("	4          	   10");
-        GameController.println(" 	5          	   15");
-        GameController.println("	6 		       21");
-        GameController.println("	7          	   28");
-        GameController.println("  	8          	   36");
-        GameController.println("	9              45");
-        GameController.println("	10             55");
-        GameController.println("	11	    	   66");
-        GameController.println("	12		       78");
-        GameController.println("	13		       91");
-        GameController.println("	14         	   105");
-        GameController.println(" 	15         	   120");
-        GameController.println("	16 	    	   136");
-        GameController.println("	17         	   153");
-        GameController.println("  	18         	   171");
-        GameController.println("	19             190");
-        GameController.println("	20             210");
-        GameController.println("	22		       253");
-        GameController.println("	23		       276");
-        GameController.println("	24             300");
-        GameController.println(" 	25         	   325");
-        GameController.println("	26 		       351");
-        GameController.println("	27             378");
-        GameController.println("  	28         	   406");
-        GameController.println("	29             435");
-        GameController.println("	30                 465");
-        GameController.println("	31	    	   496");
-        GameController.println("	32		   528");
-        GameController.println("	33		   561");
-        GameController.println("	34          	   595");
-        GameController.println(" 	35          	   630");
-        GameController.println("	36 		   666");
-        GameController.println("	37          	   703");
-        GameController.println("  	38          	   741");
-        GameController.println("	39                 780");
-        GameController.println("	40                 820\n");
-    }
-    */
 
     public static void raceCard() {
         GameController.println("**************************************");
@@ -175,7 +123,11 @@ public class Introduction {
         GameController.println("**************************************");
         GameController.println("             HOW TO MOVE");
         GameController.println("**************************************");
-        GameController.println("You may move your player forwards to\n" + "any unoccupied square except a \n" + "tortoise square. It can be any distance\n" + "ahead as long as you have enough\n" + "carrots to play the move. The cost is\n" + "shown on the race card.\n");
+        GameController.println("You may move your player forwards to\n"
+                             + "any unoccupied square except a \n"
+                             + "tortoise square. It can be any distance\n"
+                             + "ahead as long as you have enough\n"
+                + "carrots to play the move. The cost is\n" + "shown on the race card.\n");
         GameController.println("Later in the game you may move back\n" + "instead of forwards, but only to \n" + "a tortoise square. Moving backwards\n" + "costs nothing--instead, it is a way of\n" + "earning carrots, as explained earlier.\n");
     }
 

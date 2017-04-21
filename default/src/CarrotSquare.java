@@ -7,15 +7,13 @@
  *                             >> Stay where you are and discard 10 carrots or
  *                             >> Take your turn as normal.
  * ===========================================================================
- * -- Once you are on a Carrot Square you may miss as many turns as you like as well whilst:
+ * -- Once you are on a Carrot Square you may miss as many turns as you like whilst:
  * >> Collecting 10 carrots every time you stay or..
  * >> Discarding 10 carrots every time you stay.
  *
  * @author: Gary Fleming
  * @version
  */
-
-
 
 public class CarrotSquare extends Square {
     @Override

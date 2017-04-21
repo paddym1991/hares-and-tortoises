@@ -18,10 +18,7 @@ public class NumberSquare extends Square {
     public int[] numbers;
 
     /**
-     *
      * @param numbers
-     *              Numbers indicates whether the number is in the current numbers or not
-     *
      */
     public NumberSquare(int... numbers) {
         this.numbers = numbers;

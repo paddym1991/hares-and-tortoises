@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * The ConsoleMenu class is a menu driven application where the user can choose
  * a selection to learn about the rules and strategies of the game.
@@ -22,8 +20,6 @@ import java.util.Scanner;
  */
 
 public class ConsoleMenu{
-
-    private Scanner input;
 
     public static void main(String []args) {
         new ConsoleMenu();

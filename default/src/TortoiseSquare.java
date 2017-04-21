@@ -17,8 +17,7 @@ public class TortoiseSquare extends Square {
     /**
      * Overrides the Square Class... When a player can land on the square
      * @param player
-     *              Player function when the square can be landed on
-     * @return can land on the square
+     * @return false when moving forward
      */
     @Override
     public boolean canLandOn(Player player) {

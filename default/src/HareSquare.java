@@ -36,10 +36,6 @@ public class HareSquare extends Square {
     private static int[] deck = new int[]{0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7};
     private static int currentCard = 0;
 
-    /*
-    Once Player lands on HareSquare, Player will be told they have landed on this square.
-    Next card in Hare deck will then be chosen and instructions will be carried out.
-     */
 
     @Override
     public String toString() {
@@ -154,9 +150,11 @@ public class HareSquare extends Square {
         }
     }
 
-    //random shuffle of cards
-    //found code for this at: https://www.youtube.com/watch?v=8I37elnmZ2I
-    //
+    /**
+     * Random shuffle of cards
+     *
+     * Found code for this at: https://www.youtube.com/watch?v=8I37elnmZ2I
+     */
     public static void shuffle() {
         int noOfElements = deck.length;
 

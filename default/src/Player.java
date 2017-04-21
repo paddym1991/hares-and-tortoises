@@ -22,7 +22,6 @@ public class Player {
     private boolean anotherTurn;
 
     /**
-     *
      * @param board
      */
     public Player(Board board) {
@@ -30,7 +29,6 @@ public class Player {
     }
 
     /**
-     *
      * @return
      */
     public Board getBoard() {
@@ -47,7 +45,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return Board position in the format of type string
      */
     public String getFormattedBoardPosition() {
         if (atEnd()) return "Finished";
@@ -68,7 +66,8 @@ public class Player {
      * @param numSquares
      * @return
      */
-    public static int costToMove(int numSquares) {
+    public static int costToMove(int numSquares)
+    {
         return (numSquares * (numSquares + 1))/2;
     }
 

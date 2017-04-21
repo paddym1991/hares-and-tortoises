@@ -36,7 +36,6 @@ public class Board {
      * Adding new players to the board.
      *
      * @param numPlayers
-     *              Adding players to the Board
      */
     public Board(int numPlayers) {
         for (int i=0; i<numPlayers; i++) {
@@ -45,9 +44,7 @@ public class Board {
         loadDefaultBoard();
     }
 
-    /**
-     * This mutator method sets the list of each square on the board
-     */
+    //This mutator method sets the list of each square on the board
     private void loadDefaultBoard() {
         squares = Arrays.asList(
                 new Square(),   //Start square
@@ -118,30 +115,28 @@ public class Board {
         );
     }
 
+    /**
+     * @param index
+     * @return player index
+     */
     public Player getPlayer(int index) {
         return players.get(index);
     }
 
     /**
-     * Returns The List of players
      * @return the list of players
      */
     public List<Player> getPlayers() {return players;}
 
     /**
-     * Gets the name of the player
-     *
      * @param player
-     *         The player
-     * @return Returns a String containing the name of the players and their indexes
+     * @return Returns a String containing the name of the players
      */
-    public String getPlayerName(Player player) {return getPlayerName(players.indexOf(player));}
+    public String getPlayerName(Player player)
+    {return getPlayerName(players.indexOf(player));}
 
     /**
-     * Returns a String containing the name of the player and its index number
-     *
      * @param index
-     *         The index number of the player
      * @return String containing the name of the player and its index number
      */
     public String getPlayerName(int index) { //Could be replaced if the players can have custom names
@@ -149,11 +144,8 @@ public class Board {
     }
 
     /**
-     * Gets the players race position
-     *
      * @param player
-     *         The player
-     * @return The number of rival players in front
+     * @return players position on the board
      */
     public int getRacePosition(Player player) {
         int playersInFront = 0;
@@ -167,20 +159,15 @@ public class Board {
     }
 
     /**
-     * Gets the Square index.
      * @param index
-     *         The index number of the square
-     * @return The squares index number.
+     * @return The square you are on based on the index of it in list
      */
     public Square getSquare(int index) {
         return squares.get(index);
     }
 
     /**
-     * Gets the index number of the square from the squares
-     *
      * @param square
-     *         The square
      * @return The index of the square
      */
     public int getSquareIndex(Square square) {
@@ -188,11 +175,8 @@ public class Board {
     }
 
     /**
-     * Returns true or false if at the position number at the end
-     *
      * @param position
-     *         Number of the position
-     * @return
+     * @return true if player is at the end
      */
     public boolean atEnd(int position) {
         if (position >= squares.size()-1) {
@@ -202,13 +186,11 @@ public class Board {
     }
 
     /**
-     * Returns the number of squares
      * @return the number of squares
      */
     public int length() {return squares.size();}
 
     /**
-     * Number of players
      * @return the number of players on the board
      */
     public int noOfPlayers() {
@@ -216,11 +198,8 @@ public class Board {
     }
 
     /**
-     * Gets the closest tortoise available to player
-     *
      * @param position
-     *                The position where the tortoise square is
-     * @return
+     * @return The position where the closest tortoise square is
      */
     public int getClosestTortoise(int position) {
         for (int i = position-1; i > 0; i--) {
@@ -230,7 +209,6 @@ public class Board {
     }
 
     /**
-     * Returns Number of players Finished
      * @return number of players finished
      */
     public int noOfPlayersFinished() {
