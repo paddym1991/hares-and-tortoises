@@ -149,7 +149,9 @@ public class HareSquare extends Square {
             break;
         }
     currentCard++;
-        if(currentCard > deck.length)currentCard = 0;
+        if(currentCard > deck.length - 1) {
+            currentCard = 0;
+        }
     }
 
     //random shuffle of cards
